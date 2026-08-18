@@ -3,169 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मंजिल की तलाश - MUJEEB GAZI</title>
+    <title>Mujeeb Gazi - Official Website</title>
     <style>
-        /* डार्क और एनर्जेटिक बैकग्राउंड */
+        /* पूरी वेबसाइट का बैकग्राउंड और थीम */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle, #2a1105 0%, #0d0603 100%);
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e0d02, #0d0601);
             color: #fff;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
-        }
-
-        /* मुख्य कार्ड कंटेनर */
-        .card {
-            max-width: 550px;
-            width: 100%;
-            background: rgba(20, 10, 5, 0.85);
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(230, 92, 0, 0.3);
-            border: 1px solid rgba(230, 92, 0, 0.3);
             text-align: center;
-            position: relative;
             box-sizing: border-box;
         }
 
-        /* प्रोफ़ाइल इमेज स्टाइल */
-        .profile {
-            width: 140px;
-            height: 140px;
+        .container {
+            max-width: 500px;
+            width: 90%;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin: 20px auto;
+        }
+
+        /* प्रोफाइल फोटो स्टाइल */
+        .profile-img {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #ff6600;
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
-            margin-bottom: 25px;
+            border: 3px solid #ffaa44;
+            box-shadow: 0 0 20px rgba(255, 170, 68, 0.4);
+            margin-bottom: 15px;
         }
 
-        /* कोट्स लेआउट */
-        .quote-container {
-            margin-bottom: 25px;
-        }
-
-        .quote-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            text-align: left;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #f0e6df;
-        }
-
-        .quote-top div {
-            flex: 1;
-        }
-
-        .quote-mid {
-            font-size: 16px;
-            color: #ffcc99;
-            margin: 25px 0;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        /* मुख्य निचला संदेश */
-        .quote-main {
-            font-size: 20px;
-            color: #ff8833;
-            font-weight: bold;
-            line-height: 1.6;
-            margin: 30px 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        /* नाम */
-        .footer-name {
-            font-size: 24px;
-            letter-spacing: 4px;
-            color: #ffffff;
-            font-weight: bold;
-            margin-top: 20px;
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #ffaa44;
+            margin: 10px 0 5px 0;
             text-transform: uppercase;
         }
 
-        .footer-name span {
-            color: #ff6600;
-            margin: 0 10px;
+        .subtitle {
+            font-size: 0.9rem;
+            color: #ccaabb;
+            margin-bottom: 25px;
         }
 
-        /* सोशल मीडिया बटन सेक्शन */
-        .social-buttons {
-            margin-top: 30px;
+        /* मोटिवेशनल शायरी बॉक्स */
+        .quote-box {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ffddaa;
+            margin: 15px 0;
+            min-height: 100px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            background: linear-gradient(135deg, #ff6600, #ff3300);
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
             font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 10px rgba(255, 51, 0, 0.3);
+            padding: 0 10px;
         }
 
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 51, 0, 0.5);
+        .btn-next {
+            background: #ffaa44;
+            color: #1e0d02;
+            border: none;
+            padding: 10px 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 170, 68, 0.3);
+        }
+
+        .btn-next:hover {
+            background: #ffcc88;
+            transform: scale(1.05);
+        }
+
+        /* सोशल मीडिया लिंक्स */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* बटन्स के रंग */
+        .github { background-color: #24292e; }
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .youtube { background-color: #ff0000; }
+        .facebook { background-color: #1877f2; }
+
+        /* नया जोड़ा गया बटन (Website Link) */
+        .website-btn { background-color: #00b4d8; }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+            filter: brightness(1.2);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <!-- प्रोफ़ाइल फोटो (सुनिश्चित करें कि profile.jpg इसी रिपॉजिटरी में अपलोडेड हो) -->
-    <img src="profile.jpg" class="profile" alt="Mujeeb Gazi">
-    
-    <!-- कोट्स सेक्शन -->
-    <div class="quote-container">
-        <div class="quote-top">
-            <div>
-                <strong style="color: #ff6600; display: block; margin-bottom: 5px;">याद रखो...</strong>
-                हालात चाहे कितने भी कठोर हों,<br>इरादे झुकने नहीं चाहिए,
-            </div>
-            <div style="text-align: right;">
-                <br>जो इंसान खुद पर यकीन रखता है,<br>उसके सपने रुकने नहीं चाहिए।
-            </div>
+    <div class="container">
+        <!-- आपकी प्रोफाइल फोटो (यह इमेज ऑटोमैटिक लोड होगी) -->
+        <img src="https://unsplash.com" alt="Mujeeb Gazi" class="profile-img" id="user-avatar">
+
+        <!-- आपका नाम -->
+        <h1>MUJEEB GAZI</h1>
+        <div class="subtitle">Meri Pehli Website - Manzil ki Talash ⭐ Golden theme</div>
+
+        <!-- शायरी बॉक्स -->
+        <div class="quote-box" id="quote">
+            याद रखो... हालात चाहे कितने भी कठोर हों, इरादे झुकने नहीं चाहिए।
+        </div>
+        
+        <button class="btn-next" onclick="changeQuote()">अगली शायरी ➔</button>
+
+        <!-- सोशल मीडिया और नए बटन्स -->
+        <div class="links-container">
+            <a href="https://github.io" target="_blank" class="social-link github">GitHub Profile</a>
+            <a href="https://youtube.com" target="_blank" class="social-link youtube">YouTube Channel</a>
+            <a href="https://facebook.com" target="_blank" class="social-link facebook">Facebook Page</a>
+            <a href="https://instagram.com" target="_blank" class="social-link instagram">Instagram Profile</a>
+            <!-- नया एक्स्ट्रा बटन -->
+            <a href="#" target="_blank" class="social-link website-btn">➕ My Portfolio</a>
         </div>
     </div>
 
-    <div class="quote-mid">
-        लोग क्या कहेंगे ये सोचोगे,<br>तो मंज़िल दूर रह जाएगी,
-    </div>
+    <script>
+        // फोटो इमेज से ली गई शायरी की लिस्ट
+        const quotes = [
+            "याद रखो... हालात चाहे कितने भी कठोर हों, इरादे झुकने नहीं चाहिए।",
+            "जो इंसान खुद पर यकीन रखता है, उसके सपने रुकने नहीं चाहिए।",
+            "लोग क्या कहेंगे ये सोचोगे, तो मंज़िल दूर रह जाएगी।",
+            "खुद पर भरोसा रखना, किस्मत भी एक दिन झुक जाएगी।"
+        ];
 
-    <div class="quote-main">
-        खुद पर भरोसा रखना,<br>किस्मत भी एक दिन झुक जाएगी।
-    </div>
-
-    <div class="footer-name">
-        <span>✦</span> MUJEEB GAZI <span>✦</span>
-    </div>
-
-    <!-- सोशल मीडिया बटन्स (यहाँ '#' की जगह अपने असली लिंक्स डालें) -->
-    <div class="social-buttons">
-        <a href="#" class="social-btn" target="_blank">GitHub</a>
-        <a href="#" class="social-btn" target="_blank">Instagram</a>
-        <a href="#" class="social-btn" target="_blank">YouTube</a>
-    </div>
-</div>
+        function changeQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = quotes[randomIndex];
+        }
+    </script>
 
 </body>
 </html>
 
-</html>https://youtube.com/@mujeebgazimotivational?si=JkK31TgrKxuT1TYo
-cument.getElementById("quote").innerText =
-quotes[random];
-
-}https://www.facebook.com/share/198G7Fo34P/
