@@ -1,81 +1,376 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mujeeb gazi - Portfolio</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Arial}
-.main{max-width:1200px;margin:auto;padding:20px;display:flex;flex-wrap:wrap;gap:30px}
-.left{flex:1;min-width:280px;max-width:320px}
-.dp{width:260px;height:260px;border-radius:50%;border:3px solid #30363d;object-fit:cover}
-.name{font-size:28px;font-weight:bold;margin-top:15px;color:#fff}
-.username{color:#7d8590;font-size:20px}
-.bio{margin:15px 0;line-height:1.6;font-size:14px}
-.edit{width:100%;padding:8px;background:#21262d;border:1px solid #30363d;color:#fff;border-radius:6px;margin:10px 0}
-.links{font-size:14px;line-height:2}
-.links a{color:#e6edf3;text-decoration:none}
-.links a:hover{color:#58a6ff}
-.right{flex:2;min-width:300px}
-.tabs{display:flex;gap:20px;border-bottom:1px solid #30363d;padding-bottom:10px;margin-bottom:20px}
-.tabs b{border-bottom:2px solid #f78166;padding-bottom:10px}
-.h2{font-size:16px;margin-bottom:15px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.btn-box{border:1px solid #30363d;border-radius:10px;padding:18px;background:#010409;cursor:pointer;transition:0.2s}
-.btn-box:hover{border-color:#58a6ff;transform:scale(1.02)}
-.btn-box b{color:#58a6ff;font-size:16px}
-.btn-box p{color:#7d8590;font-size:12px;margin-top:5px}
-.section{border:1px solid #30363d;border-radius:10px;padding:20px;margin-top:25px;background:#010409;display:none}
-.section.active{display:block}
-.section h2{color:#ffd700;margin-bottom:10px}
-.islamic-img{width:100%;border-radius:10px;margin-top:10px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.dp{width:200px;height:200px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mujeeb Gazi - Hoslo Ki Udaan</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-color: #c9d1d9;
+            --heading-color: #f0f6fc;
+            --accent-color: #f1e05a;
+            --accent-hover: #e3b341;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f6f8fa;
+            --card-bg: #ffffff;
+            --border-color: #d0d7de;
+            --text-color: #24292f;
+            --heading-color: #0f1419;
+            --accent-color: #d4a373;
+            --accent-hover: #bc8a5f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .counter-badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .action-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: 0.2s;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent-color);
+        }
+
+        /* Profile Layout */
+        .main-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .bio-text {
+            font-size: 0.9rem;
+            margin: 15px 0;
+        }
+
+        .links-list {
+            text-align: left;
+            list-style: none;
+            font-size: 0.85rem;
+        }
+
+        .links-list li {
+            margin-bottom: 8px;
+        }
+
+        .links-list a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .links-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        /* Controls */
+        .search-box {
+            width: 100%;
+            padding: 10px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 6px 14px;
+            border-radius: 15px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn.active {
+            background: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Cards Feed */
+        .story-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.2s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .story-title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .story-text {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .story-moral {
+            font-size: 0.85rem;
+            color: #8b949e;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 8px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-<div class="main">
-<div class="left">
-<img class="dp" src="https://github.com/mujeebgazi785-ship-it.png">
-<div class="name">mujeeb gazi</div>
-<div class="username">mujeebgazi785-ship-it</div>
-<div class="bio">⭐ Hoslo Ki Udaan ⭐ Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se ladte hue bhi apne sapnon ko zinda rakhte hain.</div>
-<button class="edit">Mujeeb Gazi Motivational</button>
-<div class="links">
-✉️ mujeebgazi785@gmail.com<br>
-▶️ <a href="https://www.youtube.com/@mujeebgazimotivational" target="_blank">YouTube - Mujeeb Gazi Motivational</a><br>
-📘 <a href="https://www.facebook.com/share/19BiF8zK1J/" target="_blank">Facebook</a><br>
-🌐 mujeebgazi785-ship-it.github.io
-</div>
-</div>
 
-<div class="right">
-<div class="tabs"><b>Overview</b> <span style="color:#7d8590">Repositories</span> <span style="color:#7d8590">Shayari</span></div>
+<div class="container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="counter-badge">
+            <i class="fa-solid fa-eye"></i> Visitors: <span id="visitor-count">1,248</span>
+        </div>
+        <div>
+            <button class="action-btn" onclick="shareSite()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+            <button class="action-btn" id="theme-toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
 
-<div class="h2">Meri Duniya - Click Karo</div>
-<div class="grid">
-<div class="btn-box" onclick="openSec('story')"><b>📖 Ek Story</b><p>Zindagi badal dene wali kahani</p></div>
-<div class="btn-box" onclick="openSec('shayari1')"><b>✍️ Shayari</b><p>Dil ko chhoo jane wali shayari</p></div>
-<div class="btn-box" onclick="openSec('kissa')"><b>📚 Kissa Kahani</b><p>Purane waqt ki kahaniyan</p></div>
-<div class="btn-box" onclick="openSec('shayari2')"><b>💔 Next Shayari</b><p>Dard bhari aur motivational</p></div>
-<div class="btn-box" onclick="openSec('islamic')"><b>🕌 Islamic Images</b><p>Deen aur Imaan wali tasveerein</p></div>
-</div>
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="https://via.placeholder.com/120" alt="Mujeeb Gazi" class="profile-img">
+            <h2>mujeeb gazi</h2>
+            <p style="color: #8b949e; font-size: 0.85rem;">mujeebgazi785-ship-it</p>
+            
+            <p class="bio-text">
+                ⭐ <strong>Hoslo Ki Udaan</strong> ⭐ Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rekhte hain.
+            </p>
 
-<div id="story" class="section active"><h2>📖 Ek Story - Hausla</h2><p>Ek ladka tha jo Bhira, UP se tha. Sab usko kehte the tu kuch nahi kar payega. Lekin usne apni Manzil Ki Talash jaari rakhi. Aaj usi ladke ki kahani log sunte hain... <br><br> <b>Seekh: Hausla kabhi mat chhodo.</b></p></div>
-<div id="shayari1" class="section"><h2>✍️ Shayari</h2><p>Manjil milegi ek din, bas chalna seekh,<br>Hausla na chhod yaar, waqt se ladna seekh!</p></div>
-<div id="kissa" class="section"><h2>📚 Kissa Kahani</h2><p>Ek waqt ki baat hai, ek buzurg ne kaha - Beta, zindagi me 3 cheez kabhi mat bhoolna: Sabr, Shukr aur Mehnat.</p></div>
-<div id="shayari2" class="section"><h2>💔 Next Shayari</h2><p>Tut kar bhi khada hu, ye hunar aata hai mujhe,<br>Gir kar sambhalna, apne Allah se aata hai mujhe.</p></div>
-<div id="islamic" class="section"><h2>🕌 Islamic Images</h2><p>Allah ke noor se roshan hai dil...</p><img class="islamic-img" src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=500"></div>
+            <ul class="links-list">
+                <li><i class="fa-regular fa-envelope"></i> mujeebgazi785@gmail.com</li>
+                <li><i class="fa-brands fa-youtube"></i> <a href="#">YouTube - Mujeeb Gazi Motivational</a></li>
+                <li><i class="fa-brands fa-facebook"></i> <a href="#">Facebook</a></li>
+                <li><i class="fa-solid fa-globe"></i> <a href="#">mujeebgazi785-ship-it.github.io</a></li>
+            </ul>
+        </div>
 
-</div>
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- Search -->
+            <input type="text" id="searchInput" class="search-box" placeholder="Search stories, quotes..." onkeyup="filterCards()">
+
+            <!-- Filters -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+                <button class="filter-btn" onclick="filterCategory('story', this)">📖 Stories</button>
+                <button class="filter-btn" onclick="filterCategory('shayari', this)">✍️ Shayari</button>
+                <button class="filter-btn" onclick="filterCategory('quotes', this)">💬 Quotes</button>
+                <button class="filter-btn" onclick="filterCategory('islamic', this)">🕌 Islamic</button>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="postsFeed">
+                <!-- Stories will be injected here dynamically -->
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-function openSec(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-window.scrollTo(0,400);
-}
+    // 20 Motivational Stories Data
+    const stories = [
+        { title: "हौसला (Hausla)", text: "एक लड़का था जो एक छोटे गाँव से था। सब उसको कहते थे कि तू ज़िंदगी में कुछ नहीं कर पाएगा। लेकिन उसने अपनी मंज़िल की तलाश जारी रखी और दिन-रात मेहनत की। आज वही लड़का लोगों के लिए मिसाल बन चुका है।", moral: "Seekh: हौसला कभी मत छोड़ो, परिस्थितियां बदलती रहती हैं।", cat: "story" },
+        { title: "चींटी की सीख", text: "एक चींटी बार-बार दीवार पर चढ़ती और गिरती, लेकिन उसने हार नहीं मानी। आखिरकार वह अपनी मंज़िल पर पहुँच ही गई।", moral: "Seekh: लगातार प्रयास करने से हर मुश्किल काम आसान हो जाता है।", cat: "story" },
+        { title: "सोच का दायरा", text: "एक व्यक्ति ने हाथी को पतली रस्सी से बंधा देखा। पूछने पर पता चला कि बचपन से ही उसे इसी रस्सी से बांधा गया था, इसलिए उसने मान लिया कि वह इसे तोड़ नहीं सकता।", moral: "Seekh: अपनी पुरानी सीमाओं को भूलकर आगे बढ़ें, आपकी ताकत आपकी सोच में है।", cat: "story" },
+        { title: "दो मेंढक", text: "दो मेंढक दूध के बर्तन में गिर गए। एक ने हिम्मत हार दी और डूब गया, जबकि दूसरे ने लगातार तैरना जारी रखा। दूध मथकर मक्खन बन गया और वह बाहर कूद गया।", moral: "Seekh: संकट के समय आखिरी सांस तक कोशिश करो।", cat: "story" },
+        { title: "बाज की उड़ान", text: "बाज जब बूढ़ा होता है, तो अपनी चोंच और पंख तोड़ देता है ताकि नए पंख आ सकें। इस दर्दनाक प्रक्रिया के बाद वह फिर से 30 साल शान से जीता है।", moral: "Seekh: बदलाव दर्दनाक होता है, लेकिन नया जीवन शुरू करने के लिए ज़रूरी होता है।", cat: "story" },
+        { title: "टूटी हुई मूर्तियाँ", text: "एक मूर्तिकार पत्थर पर छैनी से वार कर रहा था। पहला पत्थर टूट गया, लेकिन दूसरा सहता रहा और आखिरकार एक सुंदर मूर्ति बन गया।", moral: "Seekh: संघर्ष और दर्द सहन करने वाले ही इतिहास रचते हैं।", cat: "story" },
+        { title: "असली धन", text: "एक गरीब किसान हमेशा खुश रहता था। किसी ने पूछा, 'तुम्हारे पास क्या है?' उसने कहा, 'मेरे पास सेहत, संतोष और एक खुशहाल परिवार है—इससे बड़ा धन क्या होगा?'", moral: "Seekh: संतोष ही सच्चा सुख है।", cat: "story" },
+        { title: "पानी की बूँद", text: "पानी की एक बूँद अगर गर्म तवे पर गिरे तो मिट जाती है, कमल के पत्ते पर गिरे तो चमकती है और सीप में गिरे तो मोती बन जाती है।", moral: "Seekh: आपकी संगति तय करती है कि आपका मूल्य क्या होगा।", cat: "story" },
+        { title: "समय की कीमत", text: "एक राजा ने अपने मंत्री से कहा कि अगर तुम एक दिन में पूरी दुनिया घूम लो तो आधा राज्य तुम्हारा। मंत्री देर से जागा और मौका गंवा बैठा।", moral: "Seekh: जो समय का सम्मान नहीं करता, समय उसे पीछे छोड़ देता है।", cat: "story" },
+        { title: "दीपक का उजाला", text: "अंधेरी रात में एक छोटे से दीपक ने कहा, 'मैं पूरी दुनिया को तो रोशन नहीं कर सकता, लेकिन जितनी मेरी क्षमता है उतना अंधेरा ज़रूर मिटाऊंगा।'", moral: "Seekh: अपनी क्षमता के अनुसार योगदान देना भी बड़ी बात है।", cat: "story" },
+        { title: "पत्थर और तराश", text: "हीरा शुरुआत में सिर्फ एक आम पत्थर होता है, लेकिन जब उसे बार-बार घिसा जाता है तो वह अनमोल बन जाता है।", moral: "Seekh: कठिन परिस्थितियां आपको चमकाने के लिए आती हैं।", cat: "story" },
+        { title: "बीज का संघर्ष", text: "एक बीज मिट्टी के नीचे अंधेरे में दबा रहता है। वह मिट्टी को फाड़कर बाहर निकलता है और एक दिन विशाल वृक्ष बनता है।", moral: "Seekh: जब आप चारों तरफ से अंधेरे में घिरे हों, तो समझें कि आपका उगने का समय आ गया है।", cat: "story" },
+        { title: "लोहार की हथौड़ी", text: "लोहार लोहे पर सौ बार चोट करता है, लेकिन लोहा आखिरी चोट पर टूटता है। इसका मतलब यह नहीं कि पहली 99 चोट बेकार थीं।", moral: "Seekh: हर प्रयास का योगदान अंतिम सफलता में होता है।", cat: "story" },
+        { title: "बहरा मेंढक", text: "एक मेंढक ऊंचे खंभे पर चढ़ रहा था। बाकी मेंढक चिल्ला रहे थे, 'तुम नहीं चढ़ सकते!' लेकिन वह बहरा था, उसने सोचा सब उसका हौसला बढ़ा रहे हैं और वह ऊपर पहुँच गया।", moral: "Seekh: लोगों की नकारात्मक बातों को सुनना बंद कर दो।", cat: "story" },
+        { title: "दो रास्ते", text: "एक आसान रास्ता था और एक पथरीला। अधिकांश लोग आसान रास्ते पर गए जहाँ आगे खाई थी, जबकि कठिन रास्ते पर चलने वाले शिखर पर पहुँचे।", moral: "Seekh: सही रास्ता अक्सर कठिन होता है।", cat: "story" },
+        { title: "गुरु का ज्ञान", text: "एक शिष्य ने पूछा, 'सफलता का रहस्य क्या है?' गुरु ने उसे पानी में डुबोया और जब वह सांस के लिए तड़पा, तो बोले, 'जितनी तीव्र इच्छा तुम्हें सांस की थी, उतनी सफलता की होगी तो मिल जाएगी।'", moral: "Seekh: सफलता के लिए तीव्र इच्छाशक्ति ज़रूरी है।", cat: "story" },
+        { title: "पेंसिल की सीख", text: "एक बच्चे ने पूछा, 'पेंसिल बार-बार छीलने पर छोटी क्यों हो जाती है?' माँ ने कहा, 'ताकि यह और साफ और सुंदर लिख सके।'", moral: "Seekh: जीवन में परेशानियां आपको बेहतर इंसान बनाने आती हैं।", cat: "story" },
+        { title: "विश्वास का धागा", text: "गाँव में सूखा पड़ा, सब लोग बारिश की प्रार्थना करने गए। लेकिन सिर्फ एक बच्चा अपने साथ छाता लेकर आया।", moral: "Seekh: इसी को सच्चा विश्वास कहते हैं।", cat: "story" },
+        { title: "खाली हाथ", text: "एक राजा मरते समय बोला, 'मेरे हाथ ताबूत से बाहर लटका देना ताकि लोग देखें कि दुनिया जीतने वाला भी खाली हाथ ही जाता है।'", moral: "Seekh: घमंड न करें, अच्छे कर्म ही साथ जाते हैं।", cat: "story" },
+        { title: "नई शुरुआत", text: "एक व्यक्ति ने 50 साल की उम्र में नया बिजनेस शुरू किया। लोगों ने हंसा, लेकिन उसने 3 साल में बड़ी कंपनी खड़ी कर दी।", moral: "Seekh: नया सपना देखने या नई शुरुआत करने की कोई उम्र नहीं होती।", cat: "story" }
+    ];
+
+    let currentCategory = 'all';
+
+    // Render Stories
+    function renderFeed(data) {
+        const feed = document.getElementById('postsFeed');
+        feed.innerHTML = '';
+        
+        if(data.length === 0) {
+            feed.innerHTML = '<p style="text-align:center; padding: 20px;">कोई रिजल्ट नहीं मिला...</p>';
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'story-card';
+            card.innerHTML = `
+                <div class="story-title"><i class="fa-solid fa-book-open"></i> ${item.title}</div>
+                <div class="story-text">${item.text}</div>
+                <div class="story-moral">${item.moral}</div>
+            `;
+            feed.appendChild(card);
+        });
+    }
+
+    // Filter by Category
+    function filterCategory(cat, btn) {
+        currentCategory = cat;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterCards();
+    }
+
+    // Search and Category Filter Handler
+    function filterCards() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = stories.filter(item => {
+            const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
+            const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
+            return matchesCat && matchesQuery;
+        });
+        renderFeed(filtered);
+    }
+
+    // Dark/Light Theme Toggle
+    function toggleTheme() {
+        const body = document.documentElement;
+        const themeBtn = document.getElementById('theme-toggle');
+        if (body.getAttribute('data-theme') === 'light') {
+            body.removeAttribute('data-theme');
+            themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        } else {
+            body.setAttribute('data-theme', 'light');
+            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+    }
+
+    // Native Share Functionality
+    function shareSite() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Mujeeb Gazi - Hoslo Ki Udaan',
+                url: window.location.href
+            });
+        } else {
+            alert('Link copied to clipboard: ' + window.location.href);
+        }
+    }
+
+    // Simple Visitor Counter Logic (Local Storage simulated)
+    function initVisitorCount() {
+        let count = localStorage.getItem('visitorCount') || 1248;
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+        document.getElementById('visitor-count').innerText = count.toLocaleString();
+    }
+
+    // Initial Load
+    window.onload = () => {
+        renderFeed(stories);
+        initVisitorCount();
+    };
 </script>
 </body>
 </html>
