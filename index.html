@@ -3,71 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mujeeb gazi - GitHub Style Portfolio</title>
+<title>mujeeb gazi - Portfolio</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Arial}
-.top{padding:15px;background:#010409;border-bottom:1px solid #30363d;display:flex;align-items:center;gap:10px}
-.top b{color:#fff}
-.main{display:flex;flex-wrap:wrap;max-width:1200px;margin:20px auto;padding:10px;gap:25px}
-.left{flex:1;min-width:280px;max-width:350px}
-.dp{width:260px;height:260px;border-radius:50%;border:2px solid #30363d}
-.name{font-size:26px;font-weight:bold;margin-top:15px}
+.main{max-width:1200px;margin:auto;padding:20px;display:flex;flex-wrap:wrap;gap:30px}
+.left{flex:1;min-width:280px;max-width:320px}
+.dp{width:260px;height:260px;border-radius:50%;border:3px solid #30363d;object-fit:cover}
+.name{font-size:28px;font-weight:bold;margin-top:15px;color:#fff}
 .username{color:#7d8590;font-size:20px}
-.bio{margin:15px 0;line-height:1.5}
-.edit{width:100%;padding:6px;background:#21262d;border:1px solid #30363d;color:#fff;border-radius:6px}
-.link{margin:8px 0;color:#7d8590;font-size:14px;display:flex;gap:8px}
-.link a{color:#e6edf3;text-decoration:none}
+.bio{margin:15px 0;line-height:1.6;font-size:14px}
+.edit{width:100%;padding:8px;background:#21262d;border:1px solid #30363d;color:#fff;border-radius:6px;margin:10px 0}
+.links{font-size:14px;line-height:2}
+.links a{color:#e6edf3;text-decoration:none}
+.links a:hover{color:#58a6ff}
 .right{flex:2;min-width:300px}
-.tabs{border-bottom:1px solid #30363d;display:flex;gap:20px;padding-bottom:10px;overflow-x:auto}
-.tabs span{padding:5px 10px;border-bottom:2px solid #f78166;font-weight:600}
-.h2{margin:20px 0 10px;font-size:16px}
+.tabs{display:flex;gap:20px;border-bottom:1px solid #30363d;padding-bottom:10px;margin-bottom:20px}
+.tabs b{border-bottom:2px solid #f78166;padding-bottom:10px}
+.h2{font-size:16px;margin-bottom:15px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.repo{border:1px solid #30363d;border-radius:6px;padding:15px;background:#0d1117}
-.repo b{color:#58a6ff}
-.repo p{color:#7d8590;font-size:12px;margin:8px 0}
-.dot{width:12px;height:12px;background:#f1e05a;border-radius:50%;display:inline-block}
-.contrib{border:1px solid #30363d;border-radius:6px;padding:15px;margin-top:20px}
-.boxes{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;margin-top:10px}
-.box{width:12px;height:12px;background:#161b22;border-radius:2px}
-.box.green{background:#0e4429}
-.box.green2{background:#006d32}
-.box.green3{background:#26a641}
-.box.green4{background:#39d353}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.dp{width:200px;height:200px}.main{flex-direction:column}}
+.btn-box{border:1px solid #30363d;border-radius:10px;padding:18px;background:#010409;cursor:pointer;transition:0.2s}
+.btn-box:hover{border-color:#58a6ff;transform:scale(1.02)}
+.btn-box b{color:#58a6ff;font-size:16px}
+.btn-box p{color:#7d8590;font-size:12px;margin-top:5px}
+.section{border:1px solid #30363d;border-radius:10px;padding:20px;margin-top:25px;background:#010409;display:none}
+.section.active{display:block}
+.section h2{color:#ffd700;margin-bottom:10px}
+.islamic-img{width:100%;border-radius:10px;margin-top:10px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.dp{width:200px;height:200px}}
 </style>
 </head>
 <body>
-<div class="top"><b>mujeebgazi785-ship-it</b> / Hoslo Ki Udaan</div>
 <div class="main">
 <div class="left">
 <img class="dp" src="https://github.com/mujeebgazi785-ship-it.png">
 <div class="name">mujeeb gazi</div>
 <div class="username">mujeebgazi785-ship-it</div>
 <div class="bio">⭐ Hoslo Ki Udaan ⭐ Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se ladte hue bhi apne sapnon ko zinda rakhte hain.</div>
-<button class="edit">✨ Motivational Creator | Bhira, UP</button>
-<div class="link">📧 mujeebgazi785@gmail.com</div>
-<div class="link">🔗 <a href="https://mujeebgazi785-ship-it.github.io/">mujeebgazi785-ship-it.github.io</a></div>
-<div class="link">▶️ <a href="https://www.youtube.com/@mujeebgazimotivational">@mujeebgazimotivational</a></div>
-<div class="link">📸 <a href="https://www.instagram.com/mujeebgazi45/">mujeebgazi45</a></div>
+<button class="edit">Mujeeb Gazi Motivational</button>
+<div class="links">
+✉️ mujeebgazi785@gmail.com<br>
+▶️ <a href="https://www.youtube.com/@mujeebgazimotivational" target="_blank">YouTube - Mujeeb Gazi Motivational</a><br>
+📘 <a href="https://www.facebook.com/share/19BiF8zK1J/" target="_blank">Facebook</a><br>
+🌐 mujeebgazi785-ship-it.github.io
 </div>
+</div>
+
 <div class="right">
-<div class="tabs"><span>Overview</span><span>Repositories 5</span><span>Shayari</span><span>Kahani</span></div>
-<h3 class="h2">Popular repositories</h3>
+<div class="tabs"><b>Overview</b> <span style="color:#7d8590">Repositories</span> <span style="color:#7d8590">Shayari</span></div>
+
+<div class="h2">Meri Duniya - Click Karo</div>
 <div class="grid">
-<div class="repo"><b>hoslo-ki-udaan</b><p>Hoslo Ki Udaan - Motivational Shayari, Quotes, Stories aur Positive Thoughts ka platform.</p><span class="dot"></span> HTML</div>
-<div class="repo"><b>index.html</b><p>Hoslo Ki Udaan - Meri pehli official website.</p><span class="dot"></span> HTML • Public</div>
-<div class="repo"><b>mujeebgazi785-ship-it.github.io</b><p>Meri pehli website - Manzil ki Talash ⭐ Golden theme</p><span class="dot"></span> HTML</div>
-<div class="repo"><b>Haoslon-ki-udan</b><p>Hausla na chhod yaar, waqt se ladna seekh</p><span class="dot"></span> HTML</div>
+<div class="btn-box" onclick="openSec('story')"><b>📖 Ek Story</b><p>Zindagi badal dene wali kahani</p></div>
+<div class="btn-box" onclick="openSec('shayari1')"><b>✍️ Shayari</b><p>Dil ko chhoo jane wali shayari</p></div>
+<div class="btn-box" onclick="openSec('kissa')"><b>📚 Kissa Kahani</b><p>Purane waqt ki kahaniyan</p></div>
+<div class="btn-box" onclick="openSec('shayari2')"><b>💔 Next Shayari</b><p>Dard bhari aur motivational</p></div>
+<div class="btn-box" onclick="openSec('islamic')"><b>🕌 Islamic Images</b><p>Deen aur Imaan wali tasveerein</p></div>
 </div>
-<div class="contrib">
-36 contributions in the last year
-<div class="boxes">
-<script>for(let i=0;i<120;i++){document.write('<div class="box '+(Math.random()>0.7?(Math.random()>0.5?'green4':'green3'):'')+'"></div>')}</script>
+
+<div id="story" class="section active"><h2>📖 Ek Story - Hausla</h2><p>Ek ladka tha jo Bhira, UP se tha. Sab usko kehte the tu kuch nahi kar payega. Lekin usne apni Manzil Ki Talash jaari rakhi. Aaj usi ladke ki kahani log sunte hain... <br><br> <b>Seekh: Hausla kabhi mat chhodo.</b></p></div>
+<div id="shayari1" class="section"><h2>✍️ Shayari</h2><p>Manjil milegi ek din, bas chalna seekh,<br>Hausla na chhod yaar, waqt se ladna seekh!</p></div>
+<div id="kissa" class="section"><h2>📚 Kissa Kahani</h2><p>Ek waqt ki baat hai, ek buzurg ne kaha - Beta, zindagi me 3 cheez kabhi mat bhoolna: Sabr, Shukr aur Mehnat.</p></div>
+<div id="shayari2" class="section"><h2>💔 Next Shayari</h2><p>Tut kar bhi khada hu, ye hunar aata hai mujhe,<br>Gir kar sambhalna, apne Allah se aata hai mujhe.</p></div>
+<div id="islamic" class="section"><h2>🕌 Islamic Images</h2><p>Allah ke noor se roshan hai dil...</p><img class="islamic-img" src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=500"></div>
+
 </div>
-<p style="color:#7d8590;font-size:12px;margin-top:10px">Contribution activity - August 2026 - Created 24 commits in 2 repositories 🔥</p>
 </div>
-</div>
-</div>
+
+<script>
+function openSec(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,400);
+}
+</script>
 </body>
 </html>
