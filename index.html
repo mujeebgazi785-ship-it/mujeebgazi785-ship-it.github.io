@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mujeeb Gazi - Hoslo Ki Udaan</title>
+    <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -95,30 +96,54 @@
             border-radius: 12px;
             padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            border: 2px solid var(--accent-color);
+            border: 3px solid var(--accent-color);
             object-fit: cover;
+            object-position: center top;
             margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(241, 224, 90, 0.3);
+        }
+
+        .profile-title {
+            font-size: 1.3rem;
+            color: var(--heading-color);
+            margin-bottom: 4px;
+        }
+
+        .profile-username {
+            color: #8b949e;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
         }
 
         .bio-text {
             font-size: 0.9rem;
             margin: 15px 0;
+            background: rgba(255,255,255,0.03);
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+            text-align: left;
         }
 
         .links-list {
             text-align: left;
             list-style: none;
             font-size: 0.85rem;
+            margin-top: 15px;
         }
 
         .links-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .links-list a {
@@ -139,7 +164,7 @@
         /* Controls */
         .search-box {
             width: 100%;
-            padding: 10px 15px;
+            padding: 12px 15px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -199,6 +224,7 @@
         .story-text {
             font-size: 0.95rem;
             margin-bottom: 10px;
+            white-space: pre-line;
         }
 
         .story-moral {
@@ -227,26 +253,29 @@
     <div class="main-layout">
         <!-- Sidebar -->
         <div class="sidebar">
-            <img src="https://via.placeholder.com/120" alt="Mujeeb Gazi" class="profile-img">
-            <h2>mujeeb gazi</h2>
-            <p style="color: #8b949e; font-size: 0.85rem;">mujeebgazi785-ship-it</p>
+            <!-- वही पोस्टर इमेज सेट कर दी गई है -->
+            <img src="profile.jpg" onerror="this.onerror=null; this.src='https://i.ibb.co/L5CjF7Q/mujeeb-poster.jpg';" alt="Mujeeb Gazi" class="profile-img">
             
-            <p class="bio-text">
-                ⭐ <strong>Hoslo Ki Udaan</strong> ⭐ Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rekhte hain.
-            </p>
+            <h2 class="profile-title">Mujeeb Gazi Motivational</h2>
+            <p class="profile-username">mujeebgazi785-ship-it</p>
+            
+            <div class="bio-text">
+                ⭐ <strong>Hoslo Ki Udaan</strong> ⭐<br>
+                Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rekhte hain.
+            </div>
 
             <ul class="links-list">
-                <li><i class="fa-regular fa-envelope"></i> mujeebgazi785@gmail.com</li>
-                <li><i class="fa-brands fa-youtube"></i> <a href="#">YouTube - Mujeeb Gazi Motivational</a></li>
-                <li><i class="fa-brands fa-facebook"></i> <a href="#">Facebook</a></li>
-                <li><i class="fa-solid fa-globe"></i> <a href="#">mujeebgazi785-ship-it.github.io</a></li>
+                <li><i class="fa-regular fa-envelope" style="color: var(--accent-color);"></i> mujeebgazi785@gmail.com</li>
+                <li><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> <a href="#" target="_blank">YouTube - Mujeeb Gazi Motivational</a></li>
+                <li><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> <a href="#" target="_blank">Facebook</a></li>
+                <li><i class="fa-solid fa-globe" style="color: var(--accent-color);"></i> <a href="#">mujeebgazi785-ship-it.github.io</a></li>
             </ul>
         </div>
 
         <!-- Main Content -->
         <div class="content-area">
             <!-- Search -->
-            <input type="text" id="searchInput" class="search-box" placeholder="Search stories, quotes..." onkeyup="filterCards()">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search stories, quotes, shayari..." onkeyup="filterCards()">
 
             <!-- Filters -->
             <div class="filter-buttons">
@@ -254,45 +283,85 @@
                 <button class="filter-btn" onclick="filterCategory('story', this)">📖 Stories</button>
                 <button class="filter-btn" onclick="filterCategory('shayari', this)">✍️ Shayari</button>
                 <button class="filter-btn" onclick="filterCategory('quotes', this)">💬 Quotes</button>
-                <button class="filter-btn" onclick="filterCategory('islamic', this)">🕌 Islamic</button>
             </div>
 
             <!-- Posts Feed -->
-            <div id="postsFeed">
-                <!-- Stories will be injected here dynamically -->
-            </div>
+            <div id="postsFeed"></div>
         </div>
     </div>
 </div>
 
 <script>
-    // 20 Motivational Stories Data
-    const stories = [
+    const contentData = [
+        // 20 Stories
         { title: "हौसला (Hausla)", text: "एक लड़का था जो एक छोटे गाँव से था। सब उसको कहते थे कि तू ज़िंदगी में कुछ नहीं कर पाएगा। लेकिन उसने अपनी मंज़िल की तलाश जारी रखी और दिन-रात मेहनत की। आज वही लड़का लोगों के लिए मिसाल बन चुका है।", moral: "Seekh: हौसला कभी मत छोड़ो, परिस्थितियां बदलती रहती हैं।", cat: "story" },
         { title: "चींटी की सीख", text: "एक चींटी बार-बार दीवार पर चढ़ती और गिरती, लेकिन उसने हार नहीं मानी। आखिरकार वह अपनी मंज़िल पर पहुँच ही गई।", moral: "Seekh: लगातार प्रयास करने से हर मुश्किल काम आसान हो जाता है।", cat: "story" },
-        { title: "सोच का दायरा", text: "एक व्यक्ति ने हाथी को पतली रस्सी से बंधा देखा। पूछने पर पता चला कि बचपन से ही उसे इसी रस्सी से बांधा गया था, इसलिए उसने मान लिया कि वह इसे तोड़ नहीं सकता।", moral: "Seekh: अपनी पुरानी सीमाओं को भूलकर आगे बढ़ें, आपकी ताकत आपकी सोच में है।", cat: "story" },
-        { title: "दो मेंढक", text: "दो मेंढक दूध के बर्तन में गिर गए। एक ने हिम्मत हार दी और डूब गया, जबकि दूसरे ने लगातार तैरना जारी रखा। दूध मथकर मक्खन बन गया और वह बाहर कूद गया।", moral: "Seekh: संकट के समय आखिरी सांस तक कोशिश करो।", cat: "story" },
-        { title: "बाज की उड़ान", text: "बाज जब बूढ़ा होता है, तो अपनी चोंच और पंख तोड़ देता है ताकि नए पंख आ सकें। इस दर्दनाक प्रक्रिया के बाद वह फिर से 30 साल शान से जीता है।", moral: "Seekh: बदलाव दर्दनाक होता है, लेकिन नया जीवन शुरू करने के लिए ज़रूरी होता है।", cat: "story" },
-        { title: "टूटी हुई मूर्तियाँ", text: "एक मूर्तिकार पत्थर पर छैनी से वार कर रहा था। पहला पत्थर टूट गया, लेकिन दूसरा सहता रहा और आखिरकार एक सुंदर मूर्ति बन गया।", moral: "Seekh: संघर्ष और दर्द सहन करने वाले ही इतिहास रचते हैं।", cat: "story" },
-        { title: "असली धन", text: "एक गरीब किसान हमेशा खुश रहता था। किसी ने पूछा, 'तुम्हारे पास क्या है?' उसने कहा, 'मेरे पास सेहत, संतोष और एक खुशहाल परिवार है—इससे बड़ा धन क्या होगा?'", moral: "Seekh: संतोष ही सच्चा सुख है।", cat: "story" },
-        { title: "पानी की बूँद", text: "पानी की एक बूँद अगर गर्म तवे पर गिरे तो मिट जाती है, कमल के पत्ते पर गिरे तो चमकती है और सीप में गिरे तो मोती बन जाती है।", moral: "Seekh: आपकी संगति तय करती है कि आपका मूल्य क्या होगा।", cat: "story" },
-        { title: "समय की कीमत", text: "एक राजा ने अपने मंत्री से कहा कि अगर तुम एक दिन में पूरी दुनिया घूम लो तो आधा राज्य तुम्हारा। मंत्री देर से जागा और मौका गंवा बैठा।", moral: "Seekh: जो समय का सम्मान नहीं करता, समय उसे पीछे छोड़ देता है।", cat: "story" },
-        { title: "दीपक का उजाला", text: "अंधेरी रात में एक छोटे से दीपक ने कहा, 'मैं पूरी दुनिया को तो रोशन नहीं कर सकता, लेकिन जितनी मेरी क्षमता है उतना अंधेरा ज़रूर मिटाऊंगा।'", moral: "Seekh: अपनी क्षमता के अनुसार योगदान देना भी बड़ी बात है।", cat: "story" },
-        { title: "पत्थर और तराश", text: "हीरा शुरुआत में सिर्फ एक आम पत्थर होता है, लेकिन जब उसे बार-बार घिसा जाता है तो वह अनमोल बन जाता है।", moral: "Seekh: कठिन परिस्थितियां आपको चमकाने के लिए आती हैं।", cat: "story" },
-        { title: "बीज का संघर्ष", text: "एक बीज मिट्टी के नीचे अंधेरे में दबा रहता है। वह मिट्टी को फाड़कर बाहर निकलता है और एक दिन विशाल वृक्ष बनता है।", moral: "Seekh: जब आप चारों तरफ से अंधेरे में घिरे हों, तो समझें कि आपका उगने का समय आ गया है।", cat: "story" },
-        { title: "लोहार की हथौड़ी", text: "लोहार लोहे पर सौ बार चोट करता है, लेकिन लोहा आखिरी चोट पर टूटता है। इसका मतलब यह नहीं कि पहली 99 चोट बेकार थीं।", moral: "Seekh: हर प्रयास का योगदान अंतिम सफलता में होता है।", cat: "story" },
-        { title: "बहरा मेंढक", text: "एक मेंढक ऊंचे खंभे पर चढ़ रहा था। बाकी मेंढक चिल्ला रहे थे, 'तुम नहीं चढ़ सकते!' लेकिन वह बहरा था, उसने सोचा सब उसका हौसला बढ़ा रहे हैं और वह ऊपर पहुँच गया।", moral: "Seekh: लोगों की नकारात्मक बातों को सुनना बंद कर दो।", cat: "story" },
-        { title: "दो रास्ते", text: "एक आसान रास्ता था और एक पथरीला। अधिकांश लोग आसान रास्ते पर गए जहाँ आगे खाई थी, जबकि कठिन रास्ते पर चलने वाले शिखर पर पहुँचे।", moral: "Seekh: सही रास्ता अक्सर कठिन होता है।", cat: "story" },
-        { title: "गुरु का ज्ञान", text: "एक शिष्य ने पूछा, 'सफलता का रहस्य क्या है?' गुरु ने उसे पानी में डुबोया और जब वह सांस के लिए तड़पा, तो बोले, 'जितनी तीव्र इच्छा तुम्हें सांस की थी, उतनी सफलता की होगी तो मिल जाएगी।'", moral: "Seekh: सफलता के लिए तीव्र इच्छाशक्ति ज़रूरी है।", cat: "story" },
-        { title: "पेंसिल की सीख", text: "एक बच्चे ने पूछा, 'पेंसिल बार-बार छीलने पर छोटी क्यों हो जाती है?' माँ ने कहा, 'ताकि यह और साफ और सुंदर लिख सके।'", moral: "Seekh: जीवन में परेशानियां आपको बेहतर इंसान बनाने आती हैं।", cat: "story" },
-        { title: "विश्वास का धागा", text: "गाँव में सूखा पड़ा, सब लोग बारिश की प्रार्थना करने गए। लेकिन सिर्फ एक बच्चा अपने साथ छाता लेकर आया।", moral: "Seekh: इसी को सच्चा विश्वास कहते हैं।", cat: "story" },
-        { title: "खाली हाथ", text: "एक राजा मरते समय बोला, 'मेरे हाथ ताबूत से बाहर लटका देना ताकि लोग देखें कि दुनिया जीतने वाला भी खाली हाथ ही जाता है।'", moral: "Seekh: घमंड न करें, अच्छे कर्म ही साथ जाते हैं।", cat: "story" },
-        { title: "नई शुरुआत", text: "एक व्यक्ति ने 50 साल की उम्र में नया बिजनेस शुरू किया। लोगों ने हंसा, लेकिन उसने 3 साल में बड़ी कंपनी खड़ी कर दी।", moral: "Seekh: नया सपना देखने या नई शुरुआत करने की कोई उम्र नहीं होती।", cat: "story" }
+        { title: "सोच का दायरा", text: "एक व्यक्ति ने हाथी को पतली रस्सी से बंधा देखा। पूछने पर पता चला कि बचपन से ही उसे इसी रस्सी से बांधा गया था, इसलिए उसने मान लिया कि वह इसे तोड़ नहीं सकता।", moral: "Seekh: अपनी पुरानी सीमाओं को भूलकर आगे बढ़ें।", cat: "story" },
+        { title: "दो मेंढक", text: "दो मेंढक दूध के बर्तन में गिर गए। एक ने हिम्मत हार दी और डूब गया, जबकि दूसरे ने तैरना जारी रखा और मक्खन बनने पर बाहर कूद गया।", moral: "Seekh: संकट में आखिरी सांस तक कोशिश करो।", cat: "story" },
+        { title: "बाज की उड़ान", text: "बाज जब बूढ़ा होता है, तो अपनी चोंच और पंख तोड़ देता है ताकि नए पंख आ सकें। इस दर्दनाक प्रक्रिया के बाद वह फिर से 30 साल शान से जीता है।", moral: "Seekh: बदलाव दर्दनाक होता है, पर ज़रूरी है।", cat: "story" },
+        { title: "टूटी हुई मूर्तियाँ", text: "एक मूर्तिकार पत्थर पर चोट कर रहा था। पहला पत्थर टूट गया, लेकिन दूसरा सहता रहा और सुंदर मूर्ति बन गया।", moral: "Seekh: संघर्ष और दर्द सहन करने वाले ही इतिहास रचते हैं।", cat: "story" },
+        { title: "असली धन", text: "एक गरीब किसान हमेशा खुश रहता था। उसने कहा, 'मेरे पास सेहत, संतोष और एक खुशहाल परिवार है—इससे बड़ा धन क्या होगा?'", moral: "Seekh: संतोष ही सच्चा सुख है।", cat: "story" },
+        { title: "पानी की बूँद", text: "पानी की बूँद गर्म तवे पर मिट जाती है, कमल पर चमकती है और सीप में मोती बनती है।", moral: "Seekh: आपकी संगति तय करती है कि आपका मूल्य क्या होगा।", cat: "story" },
+        { title: "समय की कीमत", text: "एक मंत्री को एक दिन में दुनिया घूमने पर आधा राज्य मिलना था, लेकिन वह देर से जागा और मौका गंवा बैठा।", moral: "Seekh: जो समय का सम्मान नहीं करता, समय उसे पीछे छोड़ देता है।", cat: "story" },
+        { title: "दीपक का उजाला", text: "अंधेरी रात में छोटे से दीपक ने कहा, 'मैं पूरी दुनिया को तो नहीं, पर जितनी मेरी क्षमता है उतना अंधेरा मिटाऊंगा।'", moral: "Seekh: अपनी क्षमता के अनुसार योगदान दें।", cat: "story" },
+        { title: "पत्थर और तराश", text: "हीरा शुरुआत में एक आम पत्थर होता है, पर घिसने के बाद अनमोल बनता है।", moral: "Seekh: कठिन परिस्थितियां आपको चमकाने आती हैं।", cat: "story" },
+        { title: "बीज का संघर्ष", text: "बीज मिट्टी के अंधेरे को फाड़कर बाहर निकलता है और एक दिन विशाल वृक्ष बनता है।", moral: "Seekh: अंधेरे के बाद ही उगने का समय आता है।", cat: "story" },
+        { title: "लोहार की हथौड़ी", text: "लोहार की 100वीं चोट पर लोहा टूटता है, पर पहली 99 चोट भी उतनी ही ज़रूरी थीं।", moral: "Seekh: हर प्रयास का योगदान अंतिम सफलता में होता है।", cat: "story" },
+        { title: "बहरा मेंढक", text: "सब चिल्ला रहे थे 'तुम नहीं चढ़ सकते', पर बहरे मेंढक ने सोचा सब हौसला बढ़ा रहे हैं और वह खंभे पर चढ़ गया।", moral: "Seekh: नकारात्मक बातों को सुनना बंद कर दो।", cat: "story" },
+        { title: "दो रास्ते", text: "आसान रास्ते आगे खाई की तरफ जाते हैं, जबकि पथरीले रास्ते पर चलने वाले शिखर पर पहुँचते हैं।", moral: "Seekh: सही रास्ता अक्सर कठिन होता है।", cat: "story" },
+        { title: "गुरु का ज्ञान", text: "सफलता का रहस्य वही तड़प है जो पानी में डूबते वक्त सांस की होती है।", moral: "Seekh: सफलता के लिए तीव्र इच्छाशक्ति ज़रूरी है।", cat: "story" },
+        { title: "पेंसिल की सीख", text: "पेंसिल को बार-बार छीला जाता है ताकि वह और साफ और सुंदर लिख सके।", moral: "Seekh: परेशानियां आपको बेहतर इंसान बनाती हैं।", cat: "story" },
+        { title: "विश्वास का धागा", text: "सूखे में सब बारिश की प्रार्थना करने गए, पर सिर्फ एक बच्चा अपने साथ छाता लेकर आया।", moral: "Seekh: इसी को सच्चा विश्वास कहते हैं।", cat: "story" },
+        { title: "खाली हाथ", text: "सिकंदर ने कहा, 'मेरे हाथ ताबूत से बाहर रखना ताकि लोग देखें कि दुनिया जीतने वाला भी खाली हाथ जाता है।'", moral: "Seekh: घमंड न करें, कर्म ही साथ जाते हैं।", cat: "story" },
+        { title: "नई शुरुआत", text: "50 की उम्र में नया बिजनेस शुरू कर 3 साल में बड़ी कंपनी खड़ी कर दी।", moral: "Seekh: शुरुआत करने की कोई उम्र नहीं होती।", cat: "story" },
+
+        // 20 Shayari
+        { title: "इरादे और हालात", text: "हालात चाहे कितने भी कठोर हों, इरादे झुकने नहीं चाहिए,\nजो इंसान खुद पर यकीन रखता है, उसके सपने रुकने नहीं चाहिए।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "मंज़िल की राह", text: "लोग क्या कहेंगे ये सोचोगे, तो मंज़िल दूर रह जाएगी,\nखुद पर भरोसा रखना, किस्मत भी एक दिन झुक जाएगी।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "हौसलों का परिंदा", text: "परों को खोल ज़माना उड़ान देखता है,\nज़मीन पर बैठकर क्या आसमान देखता है।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "संघर्ष का नाम", text: "अंधेरों से लड़कर ही तो सवेरा आता है,\nजो हार नहीं मानता, वही इतिहास रच जाता है।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "जिंदगी का सफर", text: "सफर में धूप तो होगी जो चल सको तो चलो,\nसभी हैं भीड़ में तुम भी निकल सको तो चलो।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "मजबूत इरादे", text: "रास्तों की परवाह करोगे तो मंज़िल बुरा मान जाएगी,\nइरादे पक्के रखो, कामयाबी खुद-ब-खुद आ जाएगी।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "वक्त का खेल", text: "वक्त से लड़कर जो नसीब बदल दे,\nइंसान वही जो अपनी तक़दीर बदल दे।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "उम्मीद की किरण", text: "गिरकर उठना, उठकर चलना यह क्रम है संसार का,\nकर्मवीर को फर्क नहीं पड़ता किसी जीत या हार का।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "अपनी पहचान", text: "भीड़ में खड़ा होना मकसद नहीं है मेरा,\nबल्कि भीड़ जिसके लिए खड़ी हो वो बनना है मुझे।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "मेहनत की गूँज", text: "मेहनत इतनी खामोशी से करो,\nकि सफलता शोर मचा दे।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "ज़िद्दी दिल", text: "मंज़िलें बड़ी ज़िद्दी होती हैं, हासिल कहाँ नसीब से होती हैं,\nमगर वहाँ तूफान भी हार जाते हैं, जहाँ कश्तियाँ ज़िद्द पर होती हैं।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "वजूद", text: "मिटा दे अपनी हस्ती को अगर कुछ मर्तबा चाहे,\nकि दाना खाक में मिलकर गुले-गुलज़ार होता है।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "आग का दरिया", text: "मुश्किलें दिल के इरादे आजमाती हैं,\nस्वप्न के पर्दे निगाहों से हटाती हैं।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "हिम्मत मत हारना", text: "ना भागना है ना रुकना है,\nबस लगातार चलते रहना है।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "खुद पर यकीन", text: "जो हो गया उसे सोचा नहीं करते,\nजो मिल गया उसे खोया नहीं करते।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "सफलता का मूलमंत्र", text: "शाम सूरज को ढलना सिखाती है,\nपरवाना को जलना सिखाती है।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "नया सवेरा", text: "रात जितनी गहरी होती है,\nसवेरा उतना ही करीब होता है।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "उड़ान की जिद", text: "ऊंचाई पर वही पहुँचते हैं,\nजो गिरने से नहीं डरते।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "कर्म ही पूजा है", text: "किस्मत के भरोसे बैठने वाले,\nसिर्फ इंतज़ार करते रह जाते हैं।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+        { title: "सपनों का जहाँ", text: "सपने वो नहीं जो हम सोते हुए देखते हैं,\nसपने वो हैं जो हमें सोने नहीं देते।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
+
+        // 20 Quotes
+        { title: "Daily Quote #1", text: "सफलता का कोई शॉर्टकट नहीं होता, इसके लिए मेहनत का रास्ता ही चुनना पड़ता है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #2", text: "जब तक आप खुद पर विश्वास नहीं करते, तब तक भगवान भी आपका साथ नहीं दे सकते।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #3", text: "आपका समय सीमित है, इसलिए इसे किसी और की जिंदगी जी कर व्यर्थ न करें।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #4", text: "अगर आप सूर्य की तरह चमकना चाहते हैं, तो पहले सूर्य की तरह जलना सीखें।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #5", text: "मंज़िलें उन्हीं को मिलती हैं, जिनके सपनों में जान होती है, पंखों से कुछ नहीं होता, हौसलों से उड़ान होती है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #6", text: "गलतियां इस बात का सबूत हैं कि आप प्रयास कर रहे हैं।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #7", text: "ज़िंदगी में कभी निराश मत होना, क्या पता कल वो दिन हो जिसका आपको सालों से इंतज़ार था।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #8", text: "ज्ञान का सही उपयोग ही आपको महान बनाता है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #9", text: "सकारात्मक सोच इंसान को हर कठिनाई से बाहर निकाल सकती है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #10", text: "जीतने वाले अलग काम नहीं करते, वे हर काम को अलग तरीके से करते हैं।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #11", text: "धैर्य रखें, हर चीज़ सही समय पर ही होती है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #12", text: "अपने सपनों को साकार करने का पहला कदम है सपना देखना।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #13", text: "खुद को इतना मजबूत बनाएं कि कोई भी नकारात्मक बात आपको डिगा न सके।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #14", text: "सफलता का रहस्य है लगातार आगे बढ़ते रहना।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #15", text: "बड़ा सोचो, जल्दी सोचो, आगे सोचो। विचारों पर किसी का एकाधिकार नहीं है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #16", text: "मौन और मुस्कान दो शक्तिशाली हथियार हैं।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #17", text: "अगर आप किसी काम की शुरुआत करते हैं, तो आधा काम तो वहीं पूरा हो जाता है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #18", text: "अनुभव एक बेहतरीन शिक्षक है, जो पहले परीक्षा लेता है और बाद में सबक देता है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #19", text: "बदलाव ही संसार का नियम है।", moral: "Daily Motivation", cat: "quotes" },
+        { title: "Daily Quote #20", text: "हौसला रखो, वक्त बदलेगा ज़रूर।", moral: "Daily Motivation", cat: "quotes" }
     ];
 
     let currentCategory = 'all';
 
-    // Render Stories
     function renderFeed(data) {
         const feed = document.getElementById('postsFeed');
         feed.innerHTML = '';
@@ -305,8 +374,12 @@
         data.forEach(item => {
             const card = document.createElement('div');
             card.className = 'story-card';
+            let icon = 'fa-book-open';
+            if(item.cat === 'shayari') icon = 'fa-pen-nib';
+            if(item.cat === 'quotes') icon = 'fa-quote-left';
+
             card.innerHTML = `
-                <div class="story-title"><i class="fa-solid fa-book-open"></i> ${item.title}</div>
+                <div class="story-title"><i class="fa-solid ${icon}"></i> ${item.title}</div>
                 <div class="story-text">${item.text}</div>
                 <div class="story-moral">${item.moral}</div>
             `;
@@ -314,7 +387,6 @@
         });
     }
 
-    // Filter by Category
     function filterCategory(cat, btn) {
         currentCategory = cat;
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -322,10 +394,9 @@
         filterCards();
     }
 
-    // Search and Category Filter Handler
     function filterCards() {
         const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = stories.filter(item => {
+        const filtered = contentData.filter(item => {
             const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
             const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
             return matchesCat && matchesQuery;
@@ -333,7 +404,6 @@
         renderFeed(filtered);
     }
 
-    // Dark/Light Theme Toggle
     function toggleTheme() {
         const body = document.documentElement;
         const themeBtn = document.getElementById('theme-toggle');
@@ -346,19 +416,17 @@
         }
     }
 
-    // Native Share Functionality
     function shareSite() {
         if (navigator.share) {
             navigator.share({
-                title: 'Mujeeb Gazi - Hoslo Ki Udaan',
+                title: 'Mujeeb Gazi Motivational',
                 url: window.location.href
             });
         } else {
-            alert('Link copied to clipboard: ' + window.location.href);
+            alert('Link copied: ' + window.location.href);
         }
     }
 
-    // Simple Visitor Counter Logic (Local Storage simulated)
     function initVisitorCount() {
         let count = localStorage.getItem('visitorCount') || 1248;
         count = parseInt(count) + 1;
@@ -366,9 +434,8 @@
         document.getElementById('visitor-count').innerText = count.toLocaleString();
     }
 
-    // Initial Load
     window.onload = () => {
-        renderFeed(stories);
+        renderFeed(contentData);
         initVisitorCount();
     };
 </script>
