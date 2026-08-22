@@ -232,36 +232,25 @@
     }
 
     function filterCategory(cat, btn) {
-        currentCategory = cat;
-        currentPage = 1;
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        filterCards();
-    }
-
-    function filterCards() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        filteredData = contentData.filter(item => {
-          const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
-            const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
-            return matchesCat && matchesQuery;
-        });
-        currentPage = 1;
-        renderFeed();
-    }
-
-    function toggleTheme() {
-        const body = document.documentElement;
-        const themeBtn = document.getElementById('theme-toggle');
-        if (body.getAttribute('data-theme') === 'light') {
-            body.removeAttribute('data-theme');
-            themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        function shareSite() {
+        if (navigator.share) {
+            navigator.share({ title: 'Mujeeb Gazi Motivational', url: window.location.href });
         } else {
-            body.setAttribute('data-theme', 'light');
-            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            alert('Link copied: ' + window.location.href);
         }
     }
 
-    function shareSite() {
-        if (navigator.share) {
-            navigator.share({ title: 'Mujeeb Gazi Motivational', url: window.location.q
+    function initVisitorCount() {
+        let count = localStorage.getItem('visitorCount') || 1248;
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+        document.getElementById('visitor-count').innerText = count.toLocaleString();
+    }
+
+    window.onload = () => {
+        filterCards();
+        initVisitorCount();
+    };
+</script>
+</body>
+</html>
