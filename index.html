@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="hi">
-<head>
+
+       <!-- Google AdSense - Mujeeb Bhai -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title>
+    <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title> <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -522,7 +523,122 @@
             alert('Link copied: ' + window.location.href);
         }
     }
+    /    // --- Pagination Fix ---
+    let currentPage = 1;
+    const itemsPerPage = 6;
+    let totalPages = 3;
 
+    function filterCards() {
+        showPage(1);
+    }
+
+    function showPage(page) {
+        const cards = document.querySelectorAll('.card');
+        if (cards.length > 0) {
+            totalPages = Math.ceil(cards.length / itemsPerPage);
+        }
+        
+        cards.forEach((card, index) => {
+            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Page number update
+        const pageSpans = document.querySelectorAll('span, div');
+        pageSpans.forEach(el => {
+            if (el.innerText && el.innerText.trim().startsWith('Page')) {
+                if (el.innerText.includes('of')) {
+                    el.innerText = `Page ${page} of ${totalPages}`;
+                }
+            }
+        });
+
+        currentPage = page;
+        window.scrollTo(0, 0);
+    }
+
+    function nextPage() {
+        if (currentPage < totalPages) {
+            showPage(currentPage + 1);
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            showPage(currentPage - 1);
+        }
+    }
+
+    function shareSite() {
+        if (navigator.share) {
+            navigator.share({ title: 'Mujeeb Gazi Motivational Stories', url: window.location.href });
+        } else {
+            alert('Link copied: ' + window.location.href);
+        }
+    }
+
+    function initVisitorCount() {
+        let count = localStorage.getItem('visitorCount');
+        if (!count) count = 1258;
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+        const el = document.getElementById('visitor-count');
+        if (el) el.innerText = count;
+    }
+
+    window.onload = () => {
+        filterCards();
+        initVisitorCount();
+    };
+</script>
+</body>
+</html>
+        const pageInfo = document.getElementById('page-info') || document.querySelector('[class*="page-info"]');
+        
+        cards.forEach((card, index) => {
+            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Page number update karo
+        const pageText = document.querySelector('body');
+        if(pageText){
+            // Page 1 of 3 wala text update
+            const pageElements = document.body.innerHTML.match(/Page \d+ of \d+/g);
+        }
+        const pageDisplay = document.getElementById('page-display');
+        if(pageDisplay) pageDisplay.innerText = `Page ${page} of ${totalPages}`;
+        
+        // Button ke text ko bhi update karo agar ID hai
+        let pageInfoElements = document.querySelectorAll('*');
+        pageInfoElements.forEach(el => {
+            if(el.innerText && el.innerText.includes('Page 1 of')){
+                el.innerText = `Page ${page} of ${totalPages}`;
+            }
+        });
+        
+        currentPage = page;
+        window.scrollTo(0,0);
+    }
+
+    function nextPage() {
+        if (currentPage < totalPages) {
+            showPage(currentPage + 1);
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            showPage(currentPage - 1);
+        }
+    }
+    // --- Fix Khatam ---
     function initVisitorCount() {
         let count = localStorage.getItem('visitorCount') || 1248;
         count = parseInt(count) + 1;
