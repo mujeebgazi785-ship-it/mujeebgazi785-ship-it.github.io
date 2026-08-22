@@ -1,8 +1,4 @@
--20)
-        { title: "1. इरादे और हालात", text: "हालात चाहे कितने भी कठोर क्यों न हों, आपके इरादे कभी झुकने नहीं चाहिए।", moral: "— Mujeeb Gazi", cat: "quotes" },
-        { title: "2. खुद पर भरोसा", text: "लोग क्या कहेंगे ये सोचने से बेहतर है कि आप वो करें जो आपको मंज़िल तक ले जाए।", moral: "— Mujeeb Gazi", cat: "quotes" },
-        { title: "3. सूर्य जैसी चमक", text: "सूरज की तरह चमकना है तो पहले सूरज की तरह जलना सीखो।", moral: "— Daily Motivation", cat: "quotes" },
-        { title: "4. वक्त की कीमत", text: "बीते हुए कल को बदला नहीं जा सकता,DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +13,7 @@
             --text-color: #d1d5db;
             --heading-color: #ffffff;
             --accent-gold: #ffc107;
+            --whatsapp-color: #25d366;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
@@ -41,7 +38,12 @@
         .story-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 15px; }
         .story-title { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 8px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
         .story-text { font-size: 0.95rem; margin-bottom: 8px; color: #e5e7eb; white-space: pre-line; }
-        .story-moral { font-size: 0.85rem; color: #9ca3af; border-top: 1px dashed var(--border-color); padding-top: 8px; font-style: italic; }
+        .story-moral { font-size: 0.85rem; color: #9ca3af; border-top: 1px dashed var(--border-color); padding-top: 8px; font-style: italic; margin-bottom: 12px; }
+
+        .card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .action-btn { background: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-color); padding: 6px 12px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        .action-btn.whatsapp { color: var(--whatsapp-color); border-color: rgba(37, 211, 102, 0.3); }
+        .action-btn:hover { background: rgba(255,255,255,0.05); }
 
         .pagination { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 25px 0; }
         .page-btn { padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); cursor: pointer; }
@@ -92,66 +94,70 @@
 <script>
     const contentData = [
         // STORIES (1-20)
-        { title: "1. किसान और उसकी सीख", text: "एक गाँव में एक किसान रहता था जो अपनी मेहनत से सूखी ज़मीन को भी उपजाऊ बना देता था। लोग पूछते तो कहता: मेहनत ही मेरी ताकत है।", moral: "— Mujeeb Gazi Story", cat: "story" },
-        { title: "2. चींटी का हौसला", text: "एक छोटी चींटी दीवार पर बार-बार चढ़कर गिरती थी, लेकिन उसने हार नहीं मानी और अंत में अपनी मंज़िल पर पहुँच ही गई।", moral: "— Never Give Up", cat: "story" },
-        { title: "3. दो मूर्तिकार", text: "एक मूर्तिकार पत्थर पर छैनी मार रहा था। जो पत्थर दर्द सह गया वो मंदिर की सुंदर मूर्ति बना, जो टूट गया वो सीढ़ी का पत्थर बना।", moral: "— संघर्ष ही पहचान है", cat: "story" },
-        { title: "4. बाज़ का पुनर्जन्म", text: "बाज़ 40 साल की उम्र में अपने पंख और चोंच तोड़ देता है ताकि 30 साल और जी सके। बदलाव दर्दनाक होता है पर ज़रूरी है।", moral: "— बदलाव ही जीवन है", cat: "story" },
-        { title: "5. राजा और लकड़ी", text: "राजा ने एक विद्वान से पूछा: हीरा बड़ा या लकड़ी? विद्वान ने कहा: जब डूबोगे तब लकड़ी ही बचाएगी। हर चीज़ की अपनी जगह अहमियत है।", moral: "— हर चीज़ का मोल समझो", cat: "story" },
-        { title: "6. तीन मजदूर", text: "तीन लोग पत्थर तोड़ रहे थे। एक ने कहा रो रहा हूँ, दूसरा पेट पाल रहा हूँ, तीसरा मंदिर बना रहा हूँ। सोच का अंतर है।", moral: "— सोच बदलो, दुनिया बदलेगी", cat: "story" },
-        { title: "7. ज़हरीला घड़ा", text: "सोच की गहराई ही इंसान को बड़ा बनाती है, धन नहीं।", moral: "— ज्ञान ही असली धन है", cat: "story" },
-        { title: "8. लकड़हारा और नदी", text: "ईमानदारी की कद्र हमेशा होती है। लोहे की कुल्हाड़ी के बदले सोने की कुल्हाड़ी मिली।", moral: "— ईमानदारी सबसे बड़ा गुण", cat: "story" },
-        { title: "9. सच्चा दीपक", text: "मुसीबत में जो काम आए वही सच्चा साथी होता है।", moral: "— रोशनी ही चरित्र है", cat: "story" },
-        { title: "10. ज़हर की खेती", text: "हंसने और रोने का समय इंसान खुद चुनता है। जैसे बीज बोओगे वैसा ही फल काटोगे।", moral: "— कर्म ही सब कुछ है", cat: "story" },
-        { title: "11. शेर और चूहा", text: "एक छोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
-        { title: "12. दो मेंढक", text: "दूध के मटके में गिरे मेंढक ने लगातार तैरकर मक्खन बनाया और बाहर आ गया।", moral: "— हिम्मत न हारें", cat: "story" },
-        { title: "13. बूढ़ा और पेड़", text: "एक वृद्ध आदमी फल का पेड़ लगा रहा था। फल दूसरों के काम आएँगे।", moral: "— परोपकार ही जीवन है", cat: "story" },
-        { title: "14. मूर्ख हंस", text: "सही वक्त पर सही सलाह न मानना विनाश का कारण बनता है।", moral: "— सीख को अपनाओ", cat: "story" },
-        { title: "15. समझदार खरगोश", text: "बुद्धि के बल से बड़े से बड़े बलवान को हराया जा सकता है।", moral: "— बुद्धि ही बल है", cat: "story" },
-        { title: "16. शिकारी कुत्ता", text: "सच्ची लगन से किया गया काम हमेशा सफल होता है।", moral: "— लगन ही सुख है", cat: "story" },
-        { title: "17. एकता में बल", text: "कबूतरों के झुंड ने मिलकर जाल उड़ा लिया। मिलकर रहने में ही ताकत है।", moral: "— मिलकर काम करें", cat: "story" },
-        { title: "18. भारी नदी", text: "तूफ़ान में सीधा खड़ा पेड़ टूट गया, लेकिन झुकने वाली घास बच गई।", moral: "— नम्रता में शक्ति है", cat: "story" },
-        { title: "19. गुरु और शिष्य", text: "अभ्यास ही इंसान को श्रेष्ठ बनाता है। निरंतर प्रयास करते रहें।", moral: "— निरंतर प्रयास", cat: "story" },
-        { title: "20. एक घड़ा पानी", text: "एक-एक बूँद पानी से ही घड़ा भरता है, वैसे ही छोटे-छोटे प्रयासों से बड़ी सफलता मिलती है।", moral: "— सब्र का फल मीठा", cat: "story" },
+        { id: 1, title: "1. किसान और उसकी सीख", text: "एक गाँव में एक किसान रहता था जो अपनी मेहनत से सूखी ज़मीन को भी उपजाऊ बना देता था। लोग पूछते तो कहता: मेहनत ही मेरी ताकत है।", moral: "— Mujeeb Gazi Story", cat: "story" },
+        { id: 2, title: "2. चींटी का हौसला", text: "एक छोटी चींटी दीवार पर बार-बार चढ़कर गिरती थी, लेकिन उसने हार नहीं मानी और अंत में अपनी मंज़िल पर पहुँच ही गई।", moral: "— Never Give Up", cat: "story" },
+        { id: 3, title: "3. दो मूर्तिकार", text: "एक मूर्तिकार पत्थर पर छैनी मार रहा था। जो पत्थर दर्द सह गया वो मंदिर की सुंदर मूर्ति बना, जो टूट गया वो सीढ़ी का पत्थर बना।", moral: "— संघर्ष ही पहचान है", cat: "story" },
+        { id: 4, title: "4. बाज़ का पुनर्जन्म", text: "बाज़ 40 साल की उम्र में अपने पंख और चोंच तोड़ देता है ताकि 30 साल और जी सके। बदलाव दर्दनाक होता है पर ज़रूरी है।", moral: "— बदलाव ही जीवन है", cat: "story" },
+        { id: 5, title: "5. राजा और लकड़ी", text: "राजा ने एक विद्वान से पूछा: हीरा बड़ा या लकड़ी? विद्वान ने कहा: जब डूबोगे तब लकड़ी ही बचाएगी। हर चीज़ की अपनी जगह अहमियत है।", moral: "— हर चीज़ का मोल समझो", cat: "story" },
+        { id: 6, title: "6. तीन मजदूर", text: "तीन लोग पत्थर तोड़ रहे थे। एक ने कहा रो रहा हूँ, दूसरा पेट पाल रहा हूँ, तीसरा मंदिर बना रहा हूँ। सोच का अंतर है।", moral: "— सोच बदलो, दुनिया बदलेगी", cat: "story" },
+        { id: 7, title: "7. ज़हरीला घड़ा", text: "सोच की गहराई ही इंसान को बड़ा बनाती है, धन नहीं।", moral: "— ज्ञान ही असली धन है", cat: "story" },
+        { id: 8, title: "8. लकड़हारा और नदी", text: "ईमानदारी की कद्र हमेशा होती है। लोहे की कुल्हाड़ी के बदले सोने की कुल्हाड़ी मिली।", moral: "— ईमानदारी सबसे बड़ा गुण", cat: "story" },
+        { id: 9, title: "9. सच्चा दीपक", text: "मुसीबत में जो काम आए वही सच्चा साथी होता है।", moral: "— रोशनी ही चरित्र है", cat: "story" },
+        { id: 10, title: "10. ज़हर की खेती", text: "हंसने और रोने का समय इंसान खुद चुनता है। जैसे बीज बोओगे वैसा ही फल काटोगे।", moral: "— कर्म ही सब कुछ है", cat: "story" },
+        { id: 11, title: "11. शेर और चूहा", text: "एकछोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
+        { id: 12, title: "12. दो मेंढक", text: "दूध के मटके में गिरे मेंढक ने लगातार तैरकर मक्खन बनाया और बाहर आ गया।", moral: "— हिम्मत न हारें", cat: "story" },
+        { id: 13, title: "13. बूढ़ा और पेड़", text: "एक वृद्ध आदमी फल का पेड़ लगा रहा था। फल दूसरों के काम आएँगे।", moral: "— परोपकार ही जीवन है", cat: "story" },
+        { id: 14, title: "14. मूर्ख हंस", text: "सही वक्त पर सही सलाह न मानना विनाश का कारण बनता है।", moral: "— सीख को अपनाओ", cat: "story" },
+        { id: 15, title: "15. समझदार खरगोश", text: "बुद्धि के बल से बड़े से बड़े बलवान को हराया जा सकता है।", moral: "— बुद्धि ही बल है", cat: "story" },
+        { id: 16, title: "16. शिकारी कुत्ता", text: "सच्ची लगन से किया गया काम हमेशा सफल होता है।", moral: "— लगन ही सुख है", cat: "story" },
+        { id: 17, title: "17. एकता में बल", text: "कबूतरों के झुंड ने मिलकर जाल उड़ा लिया। मिलकर रहने में ही ताकत है।", moral: "— मिलकर काम करें", cat: "story" },
+        { id: 18, title: "18. भारी नदी", text: "तूफ़ान में सीधा खड़ा पेड़ टूट गया, लेकिन झुकने वाली घास बच गई।", moral: "— नम्रता में शक्ति है", cat: "story" },
+        { id: 19, title: "19. गुरु और शिष्य", text: "अभ्यास ही इंसान को श्रेष्ठ बनाता है। निरंतर प्रयास करते रहें।", moral: "— निरंतर प्रयास", cat: "story" },
+        { id: 20, title: "20. एक घड़ा पानी", text: "एक-एक बूँद पानी से ही घड़ा भरता है, वैसे ही छोटे-छोटे प्रयासों से बड़ी सफलता मिलती है।", moral: "— सब्र का फल मीठा", cat: "story" },
 
         // ISLAMIC (1-20)
-        { title: "1. सब्र और दुआ", text: "अल्लाह पर अटूट भरोसा ही हर मुश्किल का हल है। जब रास्ते बंद लगें, तो याद रखो रास्ता बनाने वाला अल्लाह है।", moral: "— Islamic Teaching", cat: "islamic" },
-        { title: "2. नीयत और फल", text: "इंसान की नीयत ही उसके कर्मों का फैसला करती है। अगर नीयत साफ है तो अल्लाह रास्ते खोल देता है।", moral: "— Hadees Shareef", cat: "islamic" },
-        { title: "3. नमाज़ की ताक़त", text: "नमाज़ दिल को सुकून और ज़िंदगी को बरकत देती है। इसे कभी मत छोड़ो।", moral: "— Islamic Message", cat: "islamic" },
-        { title: "4. माँ-बाप की ख़िदमत", text: "वालदैन की दुआ वक्त के पहिए को बदल सकती है। माँ-बाप की इज़्ज़त ही सबसे बड़ा सरमाया है।", moral: "— Islamic Teaching", cat: "islamic" },
-        { title: "5. सच की राह", text: "हमेशा सच बोलो, क्योंकि सच इंसान को नजात दिलाता है।", moral: "— Hadees Shareef", cat: "islamic" },
-        { title: "6. जन्नत की चाबी", text: "अल्लाह की इबादत और हुक़ूक़ुल इबाद (इंसानों के हक) अदा करना ही कामयाबी है।", moral: "— Islamic Hope", cat: "islamic" },
-        { title: "7. तौबा का दरवाज़ा", text: "सच्ची तौबा इंसान के सारे गुनाहों को धो देती है। अल्लाह रहम करने वाला है।", moral: "— Islamic Message", cat: "islamic" },
-        { title: "8. इल्म की अहमियत", text: "इल्म हासिल करना हर मुसलमान पर फ़र्ज़ है। इल्म इंसान को अंधेरे से उजाले में लाता है।", moral: "— Sunnah", cat: "islamic" },
-        { title: "9. अख़लाक़ की ख़ूबसूरती", text: "अच्छा अख़लाक़ इंसान की सबसे बड़ी पहचान है। हर किसी से मीठी ज़बान में बात करो।", moral: "— Islamic Character", cat: "islamic" },
-        { title: "10. सदक़ा और ख़ैरात", text: "सदक़ा देने से माल घटता नहीं, बल्कि पाक और ज़्यादा होता है। गरीबों की मदद करो।", moral: "— Islamic Wisdom", cat: "islamic" },
-        { title: "11. भलाई का पैग़ाम", text: "सच्चे इंसान वो हैं जो दूसरों के लिए आसांइयाँ पैदा करते हैं।", moral: "— Good Warners", cat: "islamic" },
-        { title: "12. तवक्कुल (भरोसा)", text: "जब सब रास्ते बंद लगें, तो रब पर किया हुआ भरोसा कभी ज़ाया नहीं जाता।", moral: "— Tawakkul", cat: "islamic" },
-        { title: "13. शुक्रगुज़ारी", text: "तुम मेरा शुक्र अदा करो, मैं तुम्हें और ज़्यादा दूँगा। - कुरआन", moral: "— Quran Shareef", cat: "islamic" },
-        { title: "14. मौत की याद", text: "हर जानदार को मौत का मज़ा चखना है। अच्छे अमल ही साथ जाएँगे।", moral: "— Eternal Truth", cat: "islamic" },
-        { title: "15. भाईचारे का दस्तूर", text: "मोमिन मोमिन का भाई है। एक-दूसरे की मदद करो और ग़लतियों को माफ़ करो।", moral: "— Brotherhood", cat: "islamic" },
-        { title: "16. नर्म कलामी", text: "मीठी भाषा इंसान का सबसे बड़ा आभूषण है। कड़वी बात से बचो।", moral: "— Good Words", cat: "islamic" },
-        { title: "17. माफ़ी मांगना", text: "दूसरों को माफ़ करो, अल्लाह तुम्हें माफ़ फरमाएगा। माफ़ी माँगना बड़प्पन है।", moral: "— Forgiveness", cat: "islamic" },
-        { title: "18. दोज़ख से बचाव", text: "मेरा तक़वा याद रखो और बेइफ़ाज़ी गुनाह से बचो।", moral: "— Taqwa", cat: "islamic" },
-        { title: "19. दुआ की ताक़त", text: "दुआ तक़दीर बदल सकती है। माँगते रहो, रब देने वाला है।", moral: "— Power of Dua", cat: "islamic" },
-        { title: "20. हलाल की रोज़ी", text: "परहेज़गारी और हलाल की रोज़ी ही इंसान की इज़्ज़त की कुंजी है।", moral: "— Islamic Goal", cat: "islamic" },
+        { id: 21, title: "1. सब्र और दुआ", text: "अल्लाह पर अटूट भरोसा ही हर मुश्किल का हल है। जब रास्ते बंद लगें, तो याद रखो रास्ता बनाने वाला अल्लाह है।", moral: "— Islamic Teaching", cat: "islamic" },
+        { id: 22, title: "2. नीयत और फल", text: "इंसान की नीयत ही उसके कर्मों का फैसला करती है। अगर नीयत साफ है तो अल्लाह रास्ते खोल देता है।", moral: "— Hadees Shareef", cat: "islamic" },
+        { id: 23, title: "3. नमाज़ की ताक़त", text: "नमाज़ दिल को सुकून और ज़िंदगी को बरकत देती है। इसे कभी मत छोड़ो।", moral: "— Islamic Message", cat: "islamic" },
+        { id: 24, title: "4. माँ-बाप की ख़िदमत", text: "वालदैन की दुआ वक्त के पहिए को बदल सकती है। माँ-बाप की इज़्ज़त ही सबसे बड़ा सरमाया है।", moral: "— Islamic Teaching", cat: "islamic" },
+        { id: 25, title: "5. सच की राह", text: "हमेशा सच बोलो, क्योंकि सच इंसान को नजात दिलाता है।", moral: "— Hadees Shareef", cat: "islamic" },
+        { id: 26, title: "6. जन्नत की चाबी", text: "अल्लाह की इबादत और हुक़ूक़ुल इबाद (इंसानों के हक) अदा करना ही कामयाबी है।", moral: "— Islamic Hope", cat: "islamic" },
+        { id: 27, title: "7. तौबा का दरवाज़ा", text: "सच्ची तौबा इंसान के सारे गुनाहों को धो देती है। अल्लाह रहम करने वाला है।", moral: "— Islamic Message", cat: "islamic" },
+        { id: 28, title: "8. इल्म की अहमियत", text: "इल्म हासिल करना हर मुसलमान पर फ़र्ज़ है। इल्म इंसान को अंधेरे से उजाले में लाता है।", moral: "— Sunnah", cat: "islamic" },
+        { id: 29, title: "9. अख़लाक़ की ख़ूबसूरती", text: "अच्छा अख़लाक़ इंसान की सबसे बड़ी पहचान है। हर किसी से मीठी ज़बान में बात करो।", moral: "— Islamic Character", cat: "islamic" },
+        { id: 30, title: "10. सदक़ा और ख़ैरात", text: "सदक़ा देने से माल घटता नहीं, बल्कि पाक और ज़्यादा होता है। गरीबों की मदद करो।", moral: "— Islamic Wisdom", cat: "islamic" },
+        { id: 31, title: "11. भलाई का पैग़ाम", text: "सच्चे इंसान वो हैं जो दूसरों के लिए आसांइयाँ पैदा करते हैं।", moral: "— Good Warners", cat: "islamic" },
+        { id: 32, title: "12. तवक्कुल (भरोसा)", text: "जब सब रास्ते बंद लगें, तो रब पर किया हुआ भरोसा कभी ज़ाया नहीं जाता।", moral: "— Tawakkul", cat: "islamic" },
+        { id: 33, title: "13. शुक्रगुज़ारी", text: "तुम मेरा शुक्र अदा करो, मैं तुम्हें और ज़्यादा दूँगा। - कुरआन", moral: "— Quran Shareef", cat: "islamic" },
+        { id: 34, title: "14. मौत की याद", text: "हर जानदार को मौत का मज़ा चखना है। अच्छे अमल ही साथ जाएँगे।", moral: "— Eternal Truth", cat: "islamic" },
+        { id: 35, title: "15. भाईचारे का दस्तूर", text: "मोमिन मोमिन का भाई है। एक-दूसरे की मदद करो और ग़लतियों को माफ़ करो।", moral: "— Brotherhood", cat: "islamic" },
+        { id: 36, title: "16. नर्म कलामी", text: "मीठी भाषा इंसान का सबसे बड़ा आभूषण है। कड़वी बात से बचो।", moral: "— Good Words", cat: "islamic" },
+        { id: 37, title: "17. माफ़ी मांगना", text: "दूसरों को माफ़ करो, अल्लाह तुम्हें माफ़ फरमाएगा। माफ़ी माँगना बड़प्पन है।", moral: "— Forgiveness", cat: "islamic" },
+        { id: 38, title: "18. दोज़ख से बचाव", text: "मेरा तक़वा याद रखो और बेइफ़ाज़ी गुनाह से बचो।", moral: "— Taqwa", cat: "islamic" },
+        { id: 39, title: "19. दुआ की ताक़त", text: "दुआ तक़दीर बदल सकती है। माँगते रहो, रब देने वाला है।", moral: "— Power of Dua", cat: "islamic" },
+        { id: 40, title: "20. हलाल की रोज़ी", text: "परहेज़गारी और हलाल की रोज़ी ही इंसान की इज़्ज़त की कुंजी है।", moral: "— Islamic Goal", cat: "islamic" },
 
- पर आने वाले कल को ज़रूर संवारा जा सकता है।", moral: "— High Hopes", cat: "quotes" },
-        { title: "5. असफलता ही सीख है", text: "गिरना हार नहीं है, गिरकर न उठना असली हार है।", moral: "— Rise Again", cat: "quotes" },
-        { title: "6. समय की कीमत", text: "जो समय की कद्र करता है, समय उसकी कद्र करता है।", moral: "— Value Time", cat: "quotes" },
-        { title: "7. मेहनत का शोर", text: "मेहनत इतनी ख़ामोशी से करो कि सफलता शोर मचा दे।", moral: "— Hard Work", cat: "quotes" },
-        { title: "8. सोच का असर", text: "बड़ा सोचो, बड़ा बनो। आपकी सोच ही आपकी सीमा तय करती है।", moral: "— Think Big", cat: "quotes" },
-        { title: "9. खुद की खोज", text: "दुनिया को साबित करने से पहले खुद को साबित करो।", moral: "— Self Belief", cat: "quotes" },
-        { title: "10. जीत की ज़िद", text: "ज़िद होना चाहिए कुछ हासिल करने का, वरना सपने तो हर कोई देखता है।", moral: "— Determination", cat: "quotes" },
-        { title: "11. बदलाव की शुरुआत", text: "दुनिया को बदलने से पहले खुद में बदलाव लाओ।", moral: "— Change Yourself", cat: "quotes" },
-        { title: "12. धैर्य ही कुंजी है", text: "धीरज रखो, हर चीज़ अपने समय पर ही आसान होती है।", moral: "— Patience", cat: "quotes" },
-        { title: "13. डर के आगे जीत", text: "डर का सामना करो, वो खुद ख़त्म हो जाएगा।", moral: "— Fearless", cat: "quotes" },
-        { title: "14. लक्ष्य पर नज़र", text: "अर्जुन की तरह सिर्फ़ अपनी मछली की आँख पर ध्यान दो।", moral: "— Focus", cat: "quotes" },
-        { title: "15. आज ही शुरुआत करो", text: "कल कभी नहीं आता, जो करना है आज ही करो।", moral: "— Action Now", cat: "quotes" },
-        { title: "16. सकारात्मक सोच", text: "सकारात्मक सोच इंसान की सबसे बड़ी संपत्ति है।", moral: "— Positivity", cat: "quotes" },
-        { title: "17. संघर्ष ही जीवन", text: "बिना संघर्ष के कोई महान नहीं बनता।", moral: "— Struggle", cat: "quotes" },
-        { title: "18. भूल से सीखो", text: "अपनी गलतियों से सीखो, वही तुम्हारा सबसे बड़ा उस्ताद हैं।", moral: "— Learn & Grow", cat: "quotes" },
-        { title: "19. उम्मीद की किरण", text: "अंधेरा कितना भी गहरा हो, एक छोटी सी मोमबत्ती उसे दूर कर देती है।", moral: "— Hope", cat: "quotes" },
-        { title: "20. मंज़िल मिलेगी", text: "रुकना मत, चलते रहना, मंज़िल कदम चूमेगी।", moral: "— Keep Going", cat: "quotes" }
+        // QUOTES (1-20)
+        { id: 41, title: "1. इरादे और हालात", text: "हालात चाहे कितने भी कठोर क्यों न हों, आपके इरादे कभी झुकने नहीं चाहिए।", moral: "— Mujeeb Gazi", cat: "quotes" },
+        { id: 42, title: "2. खुद पर भरोसा", text: "लोग क्या कहेंगे ये सोचने से बेहतर है कि आप वो करें जो आपको मंज़िल तक ले जाए।", moral: "— Mujeeb Gazi", cat: "quotes" },
+        { id: 43, title: "3. सूर्य जैसी चमक", text: "सूरज की तरह चमकना है तो पहले सूरज की तरह जलना सीखो।", moral: "— Daily Motivation", cat: "quotes" },
+        { id: 44, title: "4. वक्त की कीमत", text: "बीते हुए कल को बदला नहीं जा सकता, पर आने वाले कल को ज़रूर संवारा जा सकता है।", moral: "— High Hopes", cat: "quotes" },
+        { id: 45, title: "5. असफलता ही सीख है", text: "गिरना हार नहीं है, गिरकर न उठना असली हार है।", moral: "— Rise Again", cat: "quotes" },
+        { id: 46, title: "6. समय की कीमत", text: "जो समय की कद्र करता है, समय उसकी कद्र करता है।", moral: "— Value Time", cat: "quotes" },
+        { id: 47, title: "7. मेहनत का शोर", text: "मेहनत इतनी ख़ामोशी से करो कि सफलता शोर मचा दे।", moral: "— Hard Work", cat: "quotes" },
+        { id: 48, title: "8. सोच का असर", text: "बड़ा सोचो, बड़ा बनो। आपकी सोच ही आपकी सीमा तय करती है।", moral: "— Think Big", cat: "quotes" },
+        { id: 49, title: "9. खुद की खोज", text: "दुनिया को साबित करने से पहले खुद को साबित करो।", moral: "— Self Belief", cat: "quotes" },
+        { id: 50, title: "10. जीत की ज़िद", text: "ज़िद होना चाहिए कुछ हासिल करने का, वरना सपने तो हर कोई देखता है।", moral: "— Determination", cat: "quotes" },
+        { id: 51, title: "11. बदलाव की शुरुआत", text: "दुनिया को बदलने से पहले खुद में बदलाव लाओ।", moral: "— Change Yourself", cat: "quotes" },
+        { id: 52, title: "12. धैर्य ही कुंजी है", text: "धीरज रखो, हर चीज़ अपने समय पर ही आसान होती है।", moral: "— Patience", cat: "quotes" },
+        { id: 53, title: "13. डर के आगे जीत", text: "डर का सामना करो, वो खुद ख़त्म हो जाएगा।", moral: "— Fearless", cat: "quotes" },
+        { id: 54, title: "14. लक्ष्य पर नज़र", text: "अर्जुन की तरह सिर्फ़ अपनी मछली की आँख पर ध्यान दो।", moral: "— Focus", cat: "quotes" },
+        { id: 55, title: "15. आज ही शुरुआत करो", text: "कल कभी नहीं आता, जो करना है आज ही करो।", moral: "— Action Now", cat: "quotes" },
+        { id: 56, title: "16. सकारात्मक सोच", text: "सकारात्मक सोच इंसान की सबसे बड़ी संपत्ति है।", moral: "— Positivity", cat: "quotes" },
+        { id: 57, title: "17. संघर्ष ही जीवन", text: "बिना संघर्ष के कोई महान नहीं बनता।", moral: "— Struggle", cat: "quotes" },
+        { id: 58, title: "18. भूल से सीखो", text: "अपनी गलतियों से सीखो, वही तुम्हारा सबसे बड़ा उस्ताद हैं।", moral: "— Learn & Grow", cat: "quotes" },
+        { id: 59, title: "19. उम्मीद की किरण", text: "अंधेरा कितना भी गहरा हो, एक छोटी सी मोमबत्ती उसे दूर कर देती है।", moral: "— Hope", cat: "quotes" },
+        { id: 60, title: "20. मंज़िल मिलेगी", text: "रुकना मत, चलते रहना, मंज़िल कदम चूमेगी।", moral: "— Keep Going", cat: "quotes" }
     ];
 
     let currentCategory = 'all';
@@ -185,8 +191,16 @@
 
             card.innerHTML = `
                 <div class="story-title"><i class="fa-solid ${icon}"></i> ${item.title}</div>
-                <div class="story-text">${item.text}</div>
+                <div class="story-text" id="text-${item.id}">${item.text}</div>
                 <div class="story-moral">${item.moral}</div>
+                <div class="card-actions">
+                    <button class="action-btn" onclick="speakText('${encodeURIComponent(item.title + '. ' + item.text)}')">
+                        <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i> Listen
+                    </button>
+                    <button class="action-btn whatsapp" onclick="shareWhatsApp('${encodeURIComponent(item.title)}', '${encodeURIComponent(item.text)}')">
+                        <i class="fa-brands fa-whatsapp"></i> Share
+                    </button>
+                </div>
             `;
             feed.appendChild(card);
         });
@@ -197,13 +211,31 @@
         document.getElementById('nextBtn').disabled = (currentPage === totalPages);
     }
 
+    function speakText(encodedText) {
+        window.speechSynthesis.cancel();
+        const text = decodeURIComponent(encodedText);
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'hi-IN';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function shareWhatsApp(title, text) {
+        const decodedTitle = decodeURIComponent(title);
+        const decodedText = decodeURIComponent(text);
+        const shareString = `*${decodedTitle}*\n\n${decodedText}\n\n📖 Read more on: https://bgazi785-ship-it.github.io`;
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareString)}`, '_blank');
+    }
+
     function changePage(direction) {
+        window.speechSynthesis.cancel();
         currentPage += direction;
         renderFeed();
         window.scrollTo({ top: 300, behavior: 'smooth' });
     }
 
     function filterCategory(cat, btn) {
+        window.speechSynthesis.cancel();
         currentCategory = cat;
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         if (btn) btn.classList.add('active');
@@ -211,30 +243,4 @@
     }
 
     function filterCards() {
-        const searchInput = document.getElementById('searchInput');
-        const query = searchInput ? searchInput.value.toLowerCase() : '';
-        
-        filteredData = contentData.filter(item => {
-            const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
-            const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
-            return matchesCat && matchesQuery;
-        });
-        currentPage = 1;
-        renderFeed();
-    }
-
-    function initVisitorCount() {
-        let count = localStorage.getItem('visitorCount') || 1248;
-        count = parseInt(count) + 1;
-        localStorage.setItem('visitorCount', count);
-        const visitorElem = document.getElementById('visitor-count');
-        if (visitorElem) visitorElem.innerText = count.toLocaleString();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        filterCards();
-        initVisitorCount();
-    });
-</script>
-</body>
-</html
+        const searchInput = document.getElementById('searchInput'
