@@ -1,3 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0f17;
+            --card-bg: #161b26;
+            --border-color: #232d3f;
+            --text-color: #d1d5db;
+            --heading-color: #ffffff;
+            --accent-gold: #ffc107;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 20px 10px; }
+        .container { max-width: 750px; margin: 0 auto; }
+
+        .profile-card { background: linear-gradient(145deg, #18202e, #10141d); border: 1px solid var(--border-color); border-radius: 16px; padding: 25px 15px; text-align: center; margin-bottom: 25px; }
+        .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-gold); object-fit: cover; margin-bottom: 12px; }
+        .profile-title { font-size: 1.5rem; color: var(--heading-color); margin-bottom: 4px; }
+        .profile-username { color: #9ca3af; font-size: 0.85rem; margin-bottom: 12px; }
+        .bio-text { font-size: 0.9rem; margin: 12px auto; max-width: 550px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px; border-left: 4px solid var(--accent-gold); }
+        
+        .links-list { display: flex; justify-content: center; gap: 10px; list-style: none; margin-top: 15px; flex-wrap: wrap; }
+        .links-list a { color: var(--text-color); text-decoration: none; padding: 6px 14px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.85rem; }
+
+        .controls { background: var(--card-bg); border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+        .search-box { width: 100%; padding: 10px 15px; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 20px; color: var(--text-color); margin-bottom: 15px; font-size: 0.9rem; outline: none; }
+        .filter-btns { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { padding: 6px 14px; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 15px; color: var(--text-color); cursor: pointer; font-size: 0.85rem; }
+        .filter-btn.active { background: var(--accent-gold); color: #000; font-weight: bold; }
+
+        .story-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 15px; }
+        .story-title { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 8px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .story-text { font-size: 0.95rem; margin-bottom: 8px; color: #e5e7eb; white-space: pre-line; }
+        .story-moral { font-size: 0.85rem; color: #9ca3af; border-top: 1px dashed var(--border-color); padding-top: 8px; font-style: italic; }
+
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 25px 0; }
+        .page-btn { padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); cursor: pointer; }
+        .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        #pageIndicator { font-size: 0.9rem; color: var(--accent-gold); font-weight: bold; }
+
+        footer { text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); color: #6b7280; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-card">
+        <img src="https://github.com/mujeebgazi785-ship-it.png" alt="Mujeeb Gazi" class="profile-img">
+        <h1 class="profile-title">Mujeeb Gazi Motivational</h1>
+        <p class="profile-username">@mujeebgazi785-ship-it</p>
+        <div class="bio-text">⭐ <strong>Hoslo Ki Udaan</strong> ⭐<br>Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rakhte hain.</div>
+        <ul class="links-list">
+            <li><a href="mailto:mujeebgazi785@gmail.com"><i class="fa-regular fa-envelope" style="color: var(--accent-gold);"></i> Email</a></li>
+            <li><a href="#" target="_blank"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube</a></li>
+            <li><a href="#" target="_blank"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</a></li>
+        </ul>
+    </div>
+
+    <div class="controls">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search stories, islamic, quotes..." oninput="filterCards()">
+        <div class="filter-btns">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+            <button class="filter-btn" onclick="filterCategory('story', this)">📖 Stories</button>
+            <button class="filter-btn" onclick="filterCategory('islamic', this)">☪️ Islamic</button>
+            <button class="filter-btn" onclick="filterCategory('quotes', this)">💬 Quotes</button>
+        </div>
+    </div>
+
+    <div id="postsfeed"></div>
+
+    <div class="pagination">
+        <button id="prevBtn" class="page-btn" onclick="changePage(-1)">← Previous</button>
+        <span id="pageIndicator">Page 1</span>
+        <button id="nextBtn" class="page-btn" onclick="changePage(1)">Next →</button>
+    </div>
+</div>
+
+<footer>
+    <p>© Mujeeb Gazi Motivational | Visitors: <span id="visitor-count">1,248</span></p>
+</footer>
+
 <script>
     const contentData = [
         // STORIES (1-20)
@@ -11,7 +98,7 @@
         { title: "8. लकड़हारा और नदी", text: "ईमानदारी की कद्र हमेशा होती है। लोहे की कुल्हाड़ी के बदले सोने की कुल्हाड़ी मिली।", moral: "— ईमानदारी सबसे बड़ा गुण", cat: "story" },
         { title: "9. सच्चा दीपक", text: "मुसीबत में जो काम आए वही सच्चा साथी होता है।", moral: "— रोशनी ही चरित्र है", cat: "story" },
         { title: "10. ज़हर की खेती", text: "हंसने और रोने का समय इंसान खुद चुनता है। जैसे बीज बोओगे वैसा ही फल काटोगे।", moral: "— कर्म ही सब कुछ है", cat: "story" },
-        { title: "11. शेर और चूहा", text: "एकछोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
+        { title: "11. शेर और चूहा", text: "एक छोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
         { title: "12. दो मेंढक", text: "दूध के मटके में गिरे मेंढक ने लगातार तैरकर मक्खन बनाया और बाहर आ गया।", moral: "— हिम्मत न हारें", cat: "story" },
         { title: "13. बूढ़ा और पेड़", text: "एक वृद्ध आदमी फल का पेड़ लगा रहा था। फल दूसरों के काम आएँगे।", moral: "— परोपकार ही जीवन है", cat: "story" },
         { title: "14. मूर्ख हंस", text: "सही वक्त पर सही सलाह न मानना विनाश का कारण बनता है।", moral: "— सीख को अपनाओ", cat: "story" },
@@ -96,10 +183,7 @@
             if (item.cat === 'quotes') icon = 'fa-quote-left';
             if (item.cat === 'islamic') icon = 'fa-kaaba';
 
-            let imgHTML = item.image ? `<img src="${item.image}" alt="${item.title}" class="post-img">` : '';
-
             card.innerHTML = `
-                ${imgHTML}
                 <div class="story-title"><i class="fa-solid ${icon}"></i> ${item.title}</div>
                 <div class="story-text">${item.text}</div>
                 <div class="story-moral">${item.moral}</div>
@@ -147,7 +231,6 @@
         if (visitorElem) visitorElem.innerText = count.toLocaleString();
     }
 
-    // ऑटो-स्टार्ट फिक्स
     document.addEventListener('DOMContentLoaded', () => {
         filterCards();
         initVisitorCount();
