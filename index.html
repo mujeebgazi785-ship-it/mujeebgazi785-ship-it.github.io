@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -244,29 +244,4 @@
 
     function filterCards() {
         const searchInput = document.getElementById('searchInput');
-        const query = searchInput ? searchInput.value.toLowerCase() : '';
-        
-        filteredData = contentData.filter(item => {
-            const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
-            const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
-            return matchesCat && matchesQuery;
-        });
-        currentPage = 1;
-        renderFeed();
-    }
-
-    function initVisitorCount() {
-        let count = localStorage.getItem('visitorCount') || 1248;
-        count = parseInt(count) + 1;
-        localStorage.setItem('visitorCount', count);
-        const visitorElem = document.getElementById('visitor-count');
-        if (visitorElem) visitorElem.innerText = count.toLocaleString();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        filterCards();
-        initVisitorCount();
-    });
-</script>
-</body>
-</html>
+        con
