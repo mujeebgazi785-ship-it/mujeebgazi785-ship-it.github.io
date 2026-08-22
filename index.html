@@ -522,23 +522,40 @@
         } else {
             alert('Link copied: ' + window.location.href);
         }
-    }
-    /    // --- Pagination Fix ---
+    }<script>
     let currentPage = 1;
-    const itemsPerPage = 6;
+    const itemsPerPage = 2;
     let totalPages = 3;
 
-    function filterCards() {
-        showPage(1);
-    }
+    function filterCards() { showPage(1); }
 
     function showPage(page) {
         const cards = document.querySelectorAll('.card');
-        if (cards.length > 0) {
-            totalPages = Math.ceil(cards.length / itemsPerPage);
-        }
-        
+        if (cards.length > 0) { totalPages = Math.ceil(cards.length / itemsPerPage); }
         cards.forEach((card, index) => {
+            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        currentPage = page;
+        window.scrollTo(0,0);
+    }
+
+    function nextPage() { if (currentPage < totalPages) { showPage(currentPage + 1); } }
+    function prevPage() { if (currentPage > 1) { showPage(currentPage - 1); } }
+    function initVisitorCount() {
+        let count = localStorage.getItem('visitorCount');
+        if (!count) count = 1248;
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+        document.getElementById('visitor-count').innerText = count.toLocaleString();
+    }
+    window.onload = () => { filterCards(); initVisitorCount(); };
+</script>
+</body>
+</html>
             if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
                 card.style.display = 'block';
             } else {
