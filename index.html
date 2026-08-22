@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -242,7 +242,7 @@
     function filterCards() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         filteredData = contentData.filter(item => {
-            const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
+          const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
             const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
             return matchesCat && matchesQuery;
         });
