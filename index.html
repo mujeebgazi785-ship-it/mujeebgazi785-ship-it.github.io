@@ -14,7 +14,7 @@
             --text-color: #d1d5db;
             --heading-color: #ffffff;
             --accent-gold: #ffc107;
-            --accent-glow: rgba(255, 193, 7, 0.4);
+            --accent-glow: rgba(255, 193, 7, 0.3);
             --gradient-card: linear-gradient(145deg, #18202e, #10141d);
         }
 
@@ -25,7 +25,7 @@
             --text-color: #374151;
             --heading-color: #111827;
             --accent-gold: #d97706;
-            --accent-glow: rgba(217, 119, 6, 0.2);
+            --accent-glow: rgba(217, 119, 6, 0.15);
             --gradient-card: linear-gradient(145deg, #ffffff, #f9fafb);
         }
 
@@ -134,7 +134,6 @@
             color: var(--heading-color);
             margin-bottom: 4px;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
 
         .profile-username {
@@ -182,7 +181,7 @@
             color: var(--accent-gold);
         }
 
-        /* Controls Area (Centered) */
+        /* Controls Area */
         .controls-area {
             text-align: center;
             margin-bottom: 25px;
@@ -201,12 +200,10 @@
             display: block;
             font-size: 0.95rem;
             text-align: center;
-            transition: 0.2s;
         }
 
         .search-box:focus {
             border-color: var(--accent-gold);
-            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         .filter-buttons {
@@ -241,12 +238,15 @@
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 15px;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s;
         }
 
-        .story-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 193, 7, 0.3);
+        .story-card img.post-img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
         .story-title {
@@ -272,6 +272,42 @@
             padding-top: 10px;
             font-style: italic;
         }
+
+        /* Pagination Buttons */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .page-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-btn:not(:disabled):hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .page-num {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
     </style>
 </head>
 <body>
@@ -288,10 +324,9 @@
         </div>
     </div>
 
-    <!-- Highlighted Profile -->
+    <!-- Profile Section -->
     <div class="profile-card">
         <div class="profile-content">
-            <!-- First attempts profile.jpg, falls back to GitHub Avatar -->
             <img src="profile.jpg" onerror="this.onerror=null; this.src='https://github.com/mujeebgazi785-ship-it.png';" alt="Mujeeb Gazi" class="profile-img">
             
             <h2 class="profile-title">Mujeeb Gazi Motivational</h2>
@@ -310,13 +345,14 @@
         </div>
     </div>
 
-    <!-- Controls Area (Centered) -->
+    <!-- Controls Area -->
     <div class="controls-area">
-        <input type="text" id="searchInput" class="search-box" placeholder="Search stories, quotes, shayari..." onkeyup="filterCards()">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search stories, Islamic, quotes, shayari..." onkeyup="filterCards()">
 
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
             <button class="filter-btn" onclick="filterCategory('story', this)">📖 Stories</button>
+            <button class="filter-btn" onclick="filterCategory('islamic', this)">☪️ Islamic</button>
             <button class="filter-btn" onclick="filterCategory('shayari', this)">✍️ Shayari</button>
             <button class="filter-btn" onclick="filterCategory('quotes', this)">💬 Quotes</button>
         </div>
@@ -324,11 +360,18 @@
 
     <!-- Content Feed -->
     <div id="postsFeed"></div>
+
+    <!-- Next / Previous Folder Navigation -->
+    <div class="pagination-container">
+        <button id="prevBtn" class="page-btn" onclick="changePage(-1)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+        <span id="pageIndicator" class="page-num">Page 1</span>
+        <button id="nextBtn" class="page-btn" onclick="changePage(1)">Next <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
 </div>
 
 <script>
     const contentData = [
-        // Top Shayari from Poster
+        // 1. Poster Shayari
         { 
             title: "इरादे और हालात", 
             text: "याद रखो...\nहालात चाहे कितने भी कठोर हों, इरादे झुकने नहीं चाहिए,\nजो इंसान खुद पर यकीन रखता है, उसके सपने रुकने नहीं चाहिए।", 
@@ -341,41 +384,109 @@
             moral: "— MUJEEBGAZI", 
             cat: "shayari" 
         },
-        { title: "हौसला (Hausla)", text: "एक लड़का जो एक छोटे गाँव से था, सब कहते थे कि तू कुछ नहीं कर पाएगा। लेकिन उसने प्रयास जारी रखा और अपनी अलग पहचान बनाई।", moral: "Seekh: हौसला कभी मत छोड़ो।", cat: "story" },
-        { title: "चींटी की सीख", text: "एक चींटी बार-बार गिरती थी, लेकिन प्रयास बंद नहीं किया और आखिरकार अपनी मंज़िल तक पहुँच गई।", moral: "Seekh: निरंतर प्रयास ही सफलता की कुंजी है।", cat: "story" },
-        { title: "सपनों का जहाँ", text: "सपने वो नहीं जो हम सोते हुए देखते हैं,\nसपने वो हैं जो हमें सोने नहीं देते।", moral: "— Mujeeb Gazi Motivational", cat: "shayari" },
-        { title: "Daily Quote", text: "अगर आप सूर्य की तरह चमकना चाहते हैं, तो पहले सूर्य की तरह जलना सीखें।", moral: "Daily Motivation", cat: "quotes" }
+
+        // 2. Islamic Section with Image
+        {
+            title: "सब्र और दुआ (Islamic Quote)",
+            image: "https://images.unsplash.com/photo-1542816417-0983cbe82d07?q=80&w=600",
+            text: "जब इंसान का भरोसा अल्लाह (SWT) पर अटूट होता है, तो हर नामुमकिन रास्ता भी आसान हो जाता है। सब्र करो, बेशक अल्लाह सब्र करने वालों के साथ है।",
+            moral: "— Mujeeb Gazi Islamic",
+            cat: "islamic"
+        },
+        {
+            title: "सच्ची नियत",
+            image: "https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=600",
+            text: "अल्लाह तुम्हारे चेहरों को नहीं देखता, बल्कि तुम्हारे दिलों और तुम्हारे आमाल (कर्मों) को देखता है।",
+            moral: "— Islamic Thought",
+            cat: "islamic"
+        },
+
+        // 3. Stories
+        { 
+            title: "किसान और उसकी सीख (Story)", 
+            text: "एक गाँव में एक किसान रहता था जो अपनी मेहनत से सूखी ज़मीन को भी उपजाऊ बना देता था। लोग उससे उसकी सफलता का राज़ पूछते, तो वह मुस्कुरा कर कहता, 'मेहनत और भरोसा दो ऐसी चाबियाँ हैं जो किस्मत का बंद दरवाज़ा भी खोल देती हैं।'", 
+            moral: "Seekh: लगातार मेहनत से कठिन से कठिन काम आसान हो जाता है।", 
+            cat: "story" 
+        },
+        { 
+            title: "चींटी का हौसला (Story)", 
+            text: "एक छोटी सी चींटी दीवार पर चढ़ने की कोशिश कर रही थी। वह बार-बार गिरती, पर उसने हार नहीं मानी। 10वीं बार में वह शिखर पर पहुँच गई।", 
+            moral: "Seekh: कोशिश करने वालों की कभी हार नहीं होती।", 
+            cat: "story" 
+        },
+
+        // 4. Quotes & Shayari
+        { 
+            title: "हौसलों की उड़ान", 
+            text: "परों को खोल ज़माना उड़ान देखता है,\nज़मीन पर बैठकर क्या आसमान देखता है।", 
+            moral: "— Mujeeb Gazi Motivational", 
+            cat: "shayari" 
+        },
+        { 
+            title: "सूर्य जैसी चमक", 
+            text: "अगर आप सूर्य की तरह चमकना चाहते हैं, तो पहले सूर्य की तरह जलना सीखें।", 
+            moral: "Daily Motivation", 
+            cat: "quotes" 
+        }
     ];
 
     let currentCategory = 'all';
+    let currentPage = 1;
+    const itemsPerPage = 3; // Number of cards per page
+    let filteredData = [...contentData];
 
-    function renderFeed(data) {
+    function renderFeed() {
         const feed = document.getElementById('postsFeed');
         feed.innerHTML = '';
-        
-        if(data.length === 0) {
+
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const pageItems = filteredData.slice(start, end);
+
+        if (filteredData.length === 0) {
             feed.innerHTML = '<p style="text-align:center; padding: 20px;">कोई रिजल्ट नहीं मिला...</p>';
+            document.getElementById('prevBtn').disabled = true;
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('pageIndicator').innerText = 'Page 0';
             return;
         }
 
-        data.forEach(item => {
+        pageItems.forEach(item => {
             const card = document.createElement('div');
             card.className = 'story-card';
+            
             let icon = 'fa-book-open';
-            if(item.cat === 'shayari') icon = 'fa-pen-nib';
-            if(item.cat === 'quotes') icon = 'fa-quote-left';
+            if (item.cat === 'shayari') icon = 'fa-pen-nib';
+            if (item.cat === 'quotes') icon = 'fa-quote-left';
+            if (item.cat === 'islamic') icon = 'fa-kaaba';
+
+            let imgHTML = item.image ? `<img src="${item.image}" alt="${item.title}" class="post-img">` : '';
 
             card.innerHTML = `
+                ${imgHTML}
                 <div class="story-title"><i class="fa-solid ${icon}"></i> ${item.title}</div>
                 <div class="story-text">${item.text}</div>
                 <div class="story-moral">${item.moral}</div>
             `;
             feed.appendChild(card);
         });
+
+        // Update Pagination Controls
+        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
+        document.getElementById('prevBtn').disabled = (currentPage === 1);
+        document.getElementById('nextBtn').disabled = (currentPage === totalPages || totalPages === 0);
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        renderFeed();
+        window.scrollTo({ top: 400, behavior: 'smooth' });
     }
 
     function filterCategory(cat, btn) {
         currentCategory = cat;
+        currentPage = 1;
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         filterCards();
@@ -383,12 +494,13 @@
 
     function filterCards() {
         const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = contentData.filter(item => {
+        filteredData = contentData.filter(item => {
             const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
             const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
             return matchesCat && matchesQuery;
         });
-        renderFeed(filtered);
+        currentPage = 1;
+        renderFeed();
     }
 
     function toggleTheme() {
@@ -405,10 +517,7 @@
 
     function shareSite() {
         if (navigator.share) {
-            navigator.share({
-                title: 'Mujeeb Gazi Motivational',
-                url: window.location.href
-            });
+            navigator.share({ title: 'Mujeeb Gazi Motivational', url: window.location.href });
         } else {
             alert('Link copied: ' + window.location.href);
         }
@@ -422,7 +531,7 @@
     }
 
     window.onload = () => {
-        renderFeed(contentData);
+        filterCards();
         initVisitorCount();
     };
 </script>
