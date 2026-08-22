@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-
-       <!-- Google AdSense - Mujeeb Bhai -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+<html lang="hi">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title> <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title>
-    <!-- FontAwesome Icons -->
+    <title>Mujeeb Gazi Motivational - Hoslo Ki Udaan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -30,295 +28,50 @@
             --gradient-card: linear-gradient(145deg, #ffffff, #f9fafb);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 20px 10px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 20px 10px; transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 900px; margin: 0 auto; }
 
         /* Top Bar */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 10px 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-        }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 10px 15px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; }
+        .counter-badge { background: rgba(255, 193, 7, 0.1); color: var(--accent-gold); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .action-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 8px 14px; border-radius: 8px; cursor: pointer; margin-left: 5px; }
 
-        .counter-badge {
-            background: rgba(255, 193, 7, 0.1);
-            color: var(--accent-gold);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .action-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 8px 14px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-left: 5px;
-            transition: all 0.2s;
-        }
-
-        .action-btn:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-
-        /* Highlighted Profile Section */
-        .profile-card {
-            background: var(--gradient-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 200px;
-            background: var(--accent-glow);
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .profile-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-gold);
-            object-fit: cover;
-            object-position: center top;
-            margin-bottom: 15px;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .profile-title {
-            font-size: 1.6rem;
-            color: var(--heading-color);
-            margin-bottom: 4px;
-            font-weight: 700;
-        }
-
-        .profile-username {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .bio-text {
-            font-size: 0.95rem;
-            margin: 15px auto;
-            max-width: 600px;
-            background: rgba(255,255,255,0.03);
-            padding: 12px 18px;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent-gold);
-            text-align: center;
-        }
-
-        .links-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            list-style: none;
-            font-size: 0.85rem;
-            margin-top: 20px;
-        }
-
-        .links-list a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            transition: 0.2s;
-        }
-
-        .links-list a:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
+        /* Profile Card */
+        .profile-card { background: var(--gradient-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px 20px; text-align: center; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
+        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent-gold); object-fit: cover; object-position: center top; margin-bottom: 15px; }
+        .profile-title { font-size: 1.6rem; color: var(--heading-color); margin-bottom: 4px; font-weight: 700; }
+        .profile-username { color: #9ca3af; font-size: 0.9rem; margin-bottom: 15px; }
+        .bio-text { font-size: 0.95rem; margin: 15px auto; max-width: 600px; background: rgba(255,255,255,0.03); padding: 12px 18px; border-radius: 10px; border-left: 4px solid var(--accent-gold); }
+        .links-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; list-style: none; font-size: 0.85rem; margin-top: 20px; }
+        .links-list a { color: var(--text-color); text-decoration: none; padding: 6px 12px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; }
 
         /* Controls Area */
-        .controls-area {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .search-box {
-            width: 100%;
-            max-width: 500px;
-            padding: 12px 18px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 25px;
-            color: var(--text-color);
-            margin: 0 auto 20px auto;
-            outline: none;
-            display: block;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
-        .search-box:focus {
-            border-color: var(--accent-gold);
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 8px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: 0.2s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--accent-gold);
-            color: #000;
-            font-weight: 600;
-            border-color: var(--accent-gold);
-        }
+        .controls-area { text-align: center; margin-bottom: 25px; }
+        .search-box { width: 100%; max-width: 500px; padding: 12px 18px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 25px; color: var(--text-color); margin: 0 auto 20px auto; outline: none; display: block; text-align: center; }
+        .filter-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .filter-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; }
+        .filter-btn.active { background: var(--accent-gold); color: #000; font-weight: 600; }
 
         /* Feed Cards */
-        .story-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: transform 0.2s;
-        }
+        .story-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 15px; }
+        .story-card img.post-img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        .story-title { color: var(--accent-gold); font-size: 1.15rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .story-text { font-size: 0.95rem; margin-bottom: 12px; white-space: pre-line; }
+        .story-moral { font-size: 0.85rem; color: #9ca3af; border-top: 1px dashed var(--border-color); padding-top: 10px; font-style: italic; }
 
-        .story-card img.post-img {
-            width: 100%;
-            max-height: 350px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .story-title {
-            color: var(--accent-gold);
-            font-size: 1.15rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-
-        .story-text {
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            white-space: pre-line;
-        }
-
-        .story-moral {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            border-top: 1px dashed var(--border-color);
-            padding-top: 10px;
-            font-style: italic;
-        }
-
-        /* Pagination Buttons */
-        .pagination-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .page-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-
-        .page-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .page-btn:not(:disabled):hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-
-        .page-num {
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-        }
+        /* Pagination */
+        .pagination-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 30px 0; }
+        .page-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color); padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+        .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .page-num { font-size: 0.95rem; font-weight: bold; color: var(--accent-gold); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Top Bar -->
     <div class="top-bar">
-        <div class="counter-badge">
-            <i class="fa-solid fa-eye"></i> Visitors: <span id="visitor-count">1,248</span>
-        </div>
+        <div class="counter-badge"><i class="fa-solid fa-eye"></i> Visitors: <span id="visitor-count">1,248</span></div>
         <div>
             <button class="action-btn" onclick="shareSite()"><i class="fa-solid fa-share-nodes"></i> Share</button>
             <button class="action-btn" id="theme-toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
@@ -327,42 +80,30 @@
 
     <!-- Profile Section -->
     <div class="profile-card">
-        <div class="profile-content">
-            <img src="profile.jpg" onerror="this.onerror=null; this.src='https://github.com/mujeebgazi785-ship-it.png';" alt="Mujeeb Gazi" class="profile-img">
-            
-            <h2 class="profile-title">Mujeeb Gazi Motivational</h2>
-            <p class="profile-username">@mujeebgazi785-ship-it</p>
-            
-            <div class="bio-text">
-                ⭐ <strong>Hoslo Ki Udaan</strong> ⭐<br>
-                Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rakhte hain.
-            </div>
-
-            <ul class="links-list">
-                <li><a href="mailto:mujeebgazi785@gmail.com"><i class="fa-regular fa-envelope" style="color: var(--accent-gold);"></i> Email</a></li>
-                <li><a href="#" target="_blank"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube</a></li>
-                <li><a href="#" target="_blank"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</a></li>
-            </ul>
-        </div>
+        <img src="profile.jpg" onerror="this.onerror=null; this.src='https://github.com/mujeebgazi785-ship-it.png';" alt="Mujeeb Gazi" class="profile-img">
+        <h2 class="profile-title">Mujeeb Gazi Motivational</h2>
+        <p class="profile-username">@mujeebgazi785-ship-it</p>
+        <div class="bio-text">⭐ <strong>Hoslo Ki Udaan</strong> ⭐<br>Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rakhte hain.</div>
+        <ul class="links-list">
+            <li><a href="mailto:mujeebgazi785@gmail.com"><i class="fa-regular fa-envelope" style="color: var(--accent-gold);"></i> Email</a></li>
+            <li><a href="#" target="_blank"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube</a></li>
+            <li><a href="#" target="_blank"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</a></li>
+        </ul>
     </div>
 
-    <!-- Controls Area -->
+    <!-- Controls -->
     <div class="controls-area">
-        <input type="text" id="searchInput" class="search-box" placeholder="Search stories, Islamic, quotes, shayari..." onkeyup="filterCards()">
-
+        <input type="text" id="searchInput" class="search-box" placeholder="Search stories, Islamic, quotes..." onkeyup="filterCards()">
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
-            <button class="filter-btn" onclick="filterCategory('story', this)">📖 Stories</button>
-            <button class="filter-btn" onclick="filterCategory('islamic', this)">☪️ Islamic</button>
-            <button class="filter-btn" onclick="filterCategory('shayari', this)">✍️ Shayari</button>
-            <button class="filter-btn" onclick="filterCategory('quotes', this)">💬 Quotes</button>
+            <button class="filter-btn" onclick="filterCategory('story', this)">📖 Stories (20)</button>
+            <button class="filter-btn" onclick="filterCategory('islamic', this)">☪️ Islamic (20)</button>
+            <button class="filter-btn" onclick="filterCategory('quotes', this)">💬 Quotes (20)</button>
         </div>
     </div>
 
-    <!-- Content Feed -->
     <div id="postsFeed"></div>
 
-    <!-- Next / Previous Folder Navigation -->
     <div class="pagination-container">
         <button id="prevBtn" class="page-btn" onclick="changePage(-1)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
         <span id="pageIndicator" class="page-num">Page 1</span>
@@ -372,68 +113,76 @@
 
 <script>
     const contentData = [
-        // 1. Poster Shayari
-        { 
-            title: "इरादे और हालात", 
-            text: "याद रखो...\nहालात चाहे कितने भी कठोर हों, इरादे झुकने नहीं चाहिए,\nजो इंसान खुद पर यकीन रखता है, उसके सपने रुकने नहीं चाहिए।", 
-            moral: "— MUJEEBGAZI", 
-            cat: "shayari" 
-        },
-        { 
-            title: "खुद पर भरोसा", 
-            text: "लोग क्या कहेंगे ये सोचोगे, तो मंज़िल दूर रह जाएगी,\nखुद पर भरोसा रखना, किस्मत भी एक दिन झुक जाएगी।", 
-            moral: "— MUJEEBGAZI", 
-            cat: "shayari" 
-        },
+        // --- 20 STORIES ---
+        { title: "1. किसान और उसकी सीख", text: "एक गाँव में एक किसान रहता था जो अपनी मेहनत से सूखी ज़मीन को भी उपजाऊ बना देता था। लोग पूछते तो कहता: मेहनत ही मेरी ताकत है।", moral: "— Mujeeb Gazi Story", cat: "story" },
+        { title: "2. चींटी का हौसला", text: "एक छोटी चींटी दीवार पर बार-बार चढ़कर गिरती थी, लेकिन उसने हार नहीं मानी और अंत में पहुँच गई।", moral: "— Never Give Up", cat: "story" },
+        { title: "3. दो मूर्तिकार", text: "एक मूर्तिकार पत्थर पर छैनी मार रहा था। पत्थर सह गया तो मूर्ति बन गया, जो टूट गया वो सीढ़ी बना।", moral: "— संघर्ष ही पहचान है", cat: "story" },
+        { title: "4. बाज़ का पुनर्जन्म", text: "बाज़ 40 साल की उम्र में अपने पंख और चोंच तोड़ देता है ताकि 30 साल और जी सके।", moral: "— बदलाव जरूरी है", cat: "story" },
+        { title: "5. राजा और मकड़ी", text: "हार से निराश राजा ने मकड़ी को 6 बार गिरकर जाला बुनते देखा और दोबारा युद्ध जीतकर अपना राज्य पाया।", moral: "— कोशिश रंग लाती है", cat: "story" },
+        { title: "6. तीन मजदूर", text: "तीन लोग पत्थर तोड़ रहे थे। एक रो रहा था, दूसरा पेट पाल रहा था, तीसरा मंदिर बना रहा था। सोच का अंतर!", moral: "— नजरिया बदलो", cat: "story" },
+        { title: "7. जादुई घड़ा", text: "सोच की गहराई ही इंसान को बड़ा बनाती है, धन नहीं।", moral: "— ज्ञान ही असली धन है", cat: "story" },
+        { title: "8. लकड़हारा और नदी", text: "ईमानदारी की वजह से लकड़हारे को सोने की कुल्हाड़ी मिली।", moral: "— ईमानदारी सबसे बड़ा गुण", cat: "story" },
+        { title: "9. सच्चा दोस्त", text: "मुसीबत में जो काम आए वही सच्चा साथी है।", moral: "— दोस्ती की मिसाल", cat: "story" },
+        { title: "10. लोहार की भट्टी", text: "हथौड़े की चोट सहकर ही लोहा मजबूत बनता है।", moral: "— दर्द ही ताकत है", cat: "story" },
+        { title: "11. शेर और चूहा", text: "छोटे से छोटा जीव भी वक्त आने पर बड़े काम आ सकता है।", moral: "— किसी को छोटा न समझें", cat: "story" },
+        { title: "12. दो मेंढक", text: "दूध के मटके में गिरे मेंढक ने लगातार तैरकर मक्खन बनाया और बाहर आ गया।", moral: "— हिम्मत न हारें", cat: "story" },
+        { title: "13. बूढ़ा और पेड़", text: "एक बूढ़ा आदमी आम का पेड़ लगा रहा था, फल दूसरों के काम आए।", moral: "— परोपकार ही जीवन है", cat: "story" },
+        { title: "14. मूर्ख हंस", text: "बिना सोचे-समझे बोलने से विनाश होता है।", moral: "— सोच-समझकर बोलें", cat: "story" },
+        { title: "15. समझदार खरगोश", text: "बुद्धि से बड़े से बड़े बलवान को हराया जा सकता है।", moral: "— बुद्धि ही बल है", cat: "story" },
+        { title: "16. लालची कुत्ता", text: "परछाई देखकर टुकड़ा गिरा देना लालच का नतीजा था।", moral: "— संतोष ही सुख है", cat: "story" },
+        { title: "17. एकता में बल", text: "कबूतरों के झुंड ने मिलकर जाल उड़ा दिया।", moral: "— मिलजुलकर रहें", cat: "story" },
+        { title: "18. घमंडी पेड़", text: "तूफान में सीधा पेड़ टूट गया, लेकिन झुकने वाली घास बच गई।", moral: "— नम्रता में शक्ति है", cat: "story" },
+        { title: "19. गुरु और शिष्य", text: "अभ्यास ही इंसान को कुशल बनाता है।", moral: "— निरंतर प्रयास", cat: "story" },
+        { title: "20. वक्त का पहिया", text: "वक्त कभी एक जैसा नहीं रहता, अच्छा हो या बुरा बीत जाता है।", moral: "— सब्र रखें", cat: "story" },
 
-        // 2. Islamic Section with Image
-        {
-            title: "सब्र और दुआ (Islamic Quote)",
-            image: "https://images.unsplash.com/photo-1542816417-0983cbe82d07?q=80&w=600",
-            text: "जब इंसान का भरोसा अल्लाह (SWT) पर अटूट होता है, तो हर नामुमकिन रास्ता भी आसान हो जाता है। सब्र करो, बेशक अल्लाह सब्र करने वालों के साथ है।",
-            moral: "— Mujeeb Gazi Islamic",
-            cat: "islamic"
-        },
-        {
-            title: "सच्ची नियत",
-            image: "https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=600",
-            text: "अल्लाह तुम्हारे चेहरों को नहीं देखता, बल्कि तुम्हारे दिलों और तुम्हारे आमाल (कर्मों) को देखता है।",
-            moral: "— Islamic Thought",
-            cat: "islamic"
-        },
+        // --- 20 ISLAMIC POSTS ---
+        { title: "1. सब्र और दुआ", image: "https://images.unsplash.com/photo-1542816417-0983cbe82d07?q=80&w=600", text: "अल्लाह पर अटूट भरोसा ही हर मुश्किल का हल है। सब्र रखो!", moral: "— Islamic Thought", cat: "islamic" },
+        { title: "2. नियत का फल", image: "https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=600", text: "अल्लाह तुम्हारे चेहरों को नहीं, तुम्हारे दिलों और नीयत को देखता है।", moral: "— Mujeeb Gazi Islamic", cat: "islamic" },
+        { title: "3. नमाज़ सुकून है", image: "https://images.unsplash.com/photo-1542816417-0983cbe82d07?q=80&w=600", text: "दिल का सुकून सिर्फ अल्लाह के ज़िक्र में है।", moral: "— Quranic Wisdom", cat: "islamic" },
+        { title: "4. माँ-बाप की खिदमत", text: "वालिदैन की दुआ जन्नत के दरवाज़े खोल देती है।", moral: "— Islamic Teaching", cat: "islamic" },
+        { title: "5. सच की राह", text: "हमेशा सच बोलो, क्योंकि सच इंसान को नजात दिलाता है।", moral: "— Hadees Shareef", cat: "islamic" },
+        { title: "6. अल्लाह की रहमत", text: "अल्लाह की रहमत से कभी मायूस मत होना।", moral: "— Islamic Hope", cat: "islamic" },
+        { title: "7. तौबा का दर", text: "सच्ची तौबा गुनाहों को ऐसे मिटा देती है जैसे वे कभी थे ही नहीं।", moral: "— Islamic Message", cat: "islamic" },
+        { title: "8. इल्म की अहमियत", text: "इल्म हासिल करना हर मुसलमान पर फ़र्ज़ है।", moral: "— Sunnah", cat: "islamic" },
+        { title: "9. नज़रों की हिफ़ाज़त", text: "पाकीज़ा दिल वही है जो अपनी नज़रों को पाक रखे।", moral: "— Islamic Character", cat: "islamic" },
+        { title: "10. सदका व खैरात", text: "सदका देने से माल घटता नहीं, बल्कि बढ़ता है।", moral: "— Islamic Wisdom", cat: "islamic" },
+        { title: "11. अख्लाक", text: "सबसे बेहतरीन इंसान वो है जिसके अख्लाक अच्छे हैं।", moral: "— Good Manners", cat: "islamic" },
+        { title: "12. भरोसा (तवक्कुल)", text: "जब रास्ते बंद लगें, तो याद रखो रास्ता बनाने वाला अल्लाह है।", moral: "— Tawakkul", cat: "islamic" },
+        { title: "13. शुक्रगुज़ारी", text: "तुम शुक्र करो, मैं तुम्हें और ज़्यादा दूँगा।", moral: "— Quran Shareef", cat: "islamic" },
+        { title: "14. मौत की याद", text: "हर जानदार को मौत का मज़ा चखना है।", moral: "— Eternal Truth", cat: "islamic" },
+        { title: "15. पड़ोसियों का हक", text: "वो मोमिन नहीं जो खुद पेट भरकर सोए और पड़ोसी भूखा रहे।", moral: "— Brotherhood", cat: "islamic" },
+        { title: "16. नर्म कलामी", text: "मीठी भाषा बोलना भी एक सदका है।", moral: "— Good Words", cat: "islamic" },
+        { title: "17. माफी माँगना", text: "दूसरों को माफ करो, अल्लाह तुम्हें माफ फरमाएगा।", moral: "— Forgiveness", cat: "islamic" },
+        { title: "18. रोज़े की अहमियत", text: "रोज़ा नफ़्स को पाक करने का बेहतरीन ज़रिया है।", moral: "— Taqwa", cat: "islamic" },
+        { title: "19. दुआ की ताकत", text: "दुआ तक़दीर बदल सकती है।", moral: "— Power of Dua", cat: "islamic" },
+        { title: "20. जन्नत का रास्ता", text: "परहेज़गारी और अच्छे काम ही जन्नत की कुंजी हैं।", moral: "— Islamic Goal", cat: "islamic" },
 
-        // 3. Stories
-        { 
-            title: "किसान और उसकी सीख (Story)", 
-            text: "एक गाँव में एक किसान रहता था जो अपनी मेहनत से सूखी ज़मीन को भी उपजाऊ बना देता था। लोग उससे उसकी सफलता का राज़ पूछते, तो वह मुस्कुरा कर कहता, 'मेहनत और भरोसा दो ऐसी चाबियाँ हैं जो किस्मत का बंद दरवाज़ा भी खोल देती हैं।'", 
-            moral: "Seekh: लगातार मेहनत से कठिन से कठिन काम आसान हो जाता है।", 
-            cat: "story" 
-        },
-        { 
-            title: "चींटी का हौसला (Story)", 
-            text: "एक छोटी सी चींटी दीवार पर चढ़ने की कोशिश कर रही थी। वह बार-बार गिरती, पर उसने हार नहीं मानी। 10वीं बार में वह शिखर पर पहुँच गई।", 
-            moral: "Seekh: कोशिश करने वालों की कभी हार नहीं होती।", 
-            cat: "story" 
-        },
-
-        // 4. Quotes & Shayari
-        { 
-            title: "हौसलों की उड़ान", 
-            text: "परों को खोल ज़माना उड़ान देखता है,\nज़मीन पर बैठकर क्या आसमान देखता है।", 
-            moral: "— Mujeeb Gazi Motivational", 
-            cat: "shayari" 
-        },
-        { 
-            title: "सूर्य जैसी चमक", 
-            text: "अगर आप सूर्य की तरह चमकना चाहते हैं, तो पहले सूर्य की तरह जलना सीखें।", 
-            moral: "Daily Motivation", 
-            cat: "quotes" 
-        }
+        // --- 20 MOTIVATIONAL QUOTES ---
+        { title: "1. इरादे और हालात", text: "हालात चाहे कितने भी कठोर हों, इरादे झुकने नहीं चाहिए।", moral: "— Mujeeb Gazi", cat: "quotes" },
+        { title: "2. खुद पर भरोसा", text: "लोग क्या कहेंगे सोचोगे तो मंज़िल दूर रह जाएगी, खुद पर भरोसा रखो।", moral: "— Mujeeb Gazi", cat: "quotes" },
+        { title: "3. सूर्य जैसी चमक", text: "सूरज की तरह चमकना है तो पहले उसकी तरह जलना सीखो।", moral: "— Daily Motivation", cat: "quotes" },
+        { title: "4. सपनों की उड़ान", text: "सपने वो नहीं जो सोते हुए देखें, सपने वो हैं जो सोने न दें।", moral: "— High Hopes", cat: "quotes" },
+        { title: "5. असफलता ही सीख है", text: "गिरना हार नहीं है, गिरकर न उठना असली हार है।", moral: "— Rise Again", cat: "quotes" },
+        { title: "6. समय की कीमत", text: "जो समय की कद्र करता है, समय उसकी कद्र करता है।", moral: "— Value Time", cat: "quotes" },
+        { title: "7. मेहनत का शोर", text: "मेहनत इतनी खामोशी से करो कि सफलता शोर मचा दे।", moral: "— Hard Work", cat: "quotes" },
+        { title: "8. सोच का असर", text: "बड़ा सोचो, बड़ा बनो।", moral: "— Think Big", cat: "quotes" },
+        { title: "9. खुद की खोज", text: "दुनिया को साबित करने से पहले खुद को साबित करो।", moral: "— Self Belief", cat: "quotes" },
+        { title: "10. जीत की जिद्द", text: "जिद्द होना चाहिए कुछ हासिल करने का, वरना सपने तो सब देखते हैं।", moral: "— Determination", cat: "quotes" },
+        { title: "11. बदलाव की शुरुआत", text: "दुनिया को बदलने से पहले खुद में बदलाव लाओ।", moral: "— Change Yourself", cat: "quotes" },
+        { title: "12. धैर्य ही कुंजी है", text: "धीरज रखो, हर चीज़ अपने समय पर ही आसान होती है।", moral: "— Patience", cat: "quotes" },
+        { title: "13. डर के आगे जीत", text: "डर का सामना करो, वो खुद गायब हो जाएगा।", moral: "— Fearless", cat: "quotes" },
+        { title: "14. लक्ष्य पर नज़र", text: "अर्जुन की तरह सिर्फ अपनी मछली की आंख पर ध्यान दो।", moral: "— Focus", cat: "quotes" },
+        { title: "15. आज ही शुरुआत करो", text: "कल कभी नहीं आता, जो करना है आज ही करो।", moral: "— Action Now", cat: "quotes" },
+        { title: "16. सकारात्मक सोच", text: "सकारात्मक सोच इंसान की सबसे बड़ी संपत्ति है।", moral: "— Positivity", cat: "quotes" },
+        { title: "17. संघर्ष ही जीवन", text: "बिना संघर्ष के कोई महान नहीं बनता।", moral: "— Struggle", cat: "quotes" },
+        { title: "18. खुद के उस्ताद", text: "अपनी गलतियों से सीखो, वही तुम्हारा सबसे बड़ा उस्ताद हैं।", moral: "— Learn & Grow", cat: "quotes" },
+        { title: "19. उम्मीद की किरण", text: "अंधेरा कितना भी गहरा हो, एक छोटी सी मोमबत्ती उसे दूर कर देती है।", moral: "— Hope", cat: "quotes" },
+        { title: "20. मंज़िल मिलेगी", text: "रुकना मत, चलते रहना, मंज़िल कदम चूमेगी।", moral: "— Keep Going", cat: "quotes" }
     ];
 
     let currentCategory = 'all';
     let currentPage = 1;
-    const itemsPerPage = 3; // Number of cards per page
+    const itemsPerPage = 6; // HAR PAGE PAR 6 ITEMS
     let filteredData = [...contentData];
 
     function renderFeed() {
@@ -441,8 +190,7 @@
         feed.innerHTML = '';
 
         const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const pageItems = filteredData.slice(start, end);
+        const pageItems = filteredData.slice(start, start + itemsPerPage);
 
         if (filteredData.length === 0) {
             feed.innerHTML = '<p style="text-align:center; padding: 20px;">कोई रिजल्ट नहीं मिला...</p>';
@@ -457,7 +205,6 @@
             card.className = 'story-card';
             
             let icon = 'fa-book-open';
-            if (item.cat === 'shayari') icon = 'fa-pen-nib';
             if (item.cat === 'quotes') icon = 'fa-quote-left';
             if (item.cat === 'islamic') icon = 'fa-kaaba';
 
@@ -472,17 +219,16 @@
             feed.appendChild(card);
         });
 
-        // Update Pagination Controls
-        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        const totalPages = Math.ceil(filteredData.length / itemsPerPage) || 1;
         document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
         document.getElementById('prevBtn').disabled = (currentPage === 1);
-        document.getElementById('nextBtn').disabled = (currentPage === totalPages || totalPages === 0);
+        document.getElementById('nextBtn').disabled = (currentPage === totalPages);
     }
 
     function changePage(direction) {
         currentPage += direction;
         renderFeed();
-        window.scrollTo({ top: 400, behavior: 'smooth' });
+        window.scrollTo({ top: 350, behavior: 'smooth' });
     }
 
     function filterCategory(cat, btn) {
@@ -518,155 +264,4 @@
 
     function shareSite() {
         if (navigator.share) {
-            navigator.share({ title: 'Mujeeb Gazi Motivational', url: window.location.href });
-        } else {
-            alert('Link copied: ' + window.location.href);
-        }
-    }<script>
-    let currentPage = 1;
-    const itemsPerPage = 2;
-    let totalPages = 3;
-
-    function filterCards() { showPage(1); }
-
-    function showPage(page) {
-        const cards = document.querySelectorAll('.card');
-        if (cards.length > 0) { totalPages = Math.ceil(cards.length / itemsPerPage); }
-        cards.forEach((card, index) => {
-            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-        currentPage = page;
-        window.scrollTo(0,0);
-    }
-
-    function nextPage() { if (currentPage < totalPages) { showPage(currentPage + 1); } }
-    function prevPage() { if (currentPage > 1) { showPage(currentPage - 1); } }
-    function initVisitorCount() {
-        let count = localStorage.getItem('visitorCount');
-        if (!count) count = 1248;
-        count = parseInt(count) + 1;
-        localStorage.setItem('visitorCount', count);
-        document.getElementById('visitor-count').innerText = count.toLocaleString();
-    }
-    window.onload = () => { filterCards(); initVisitorCount(); };
-</script>
-</body>
-</html>
-            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        // Page number update
-        const pageSpans = document.querySelectorAll('span, div');
-        pageSpans.forEach(el => {
-            if (el.innerText && el.innerText.trim().startsWith('Page')) {
-                if (el.innerText.includes('of')) {
-                    el.innerText = `Page ${page} of ${totalPages}`;
-                }
-            }
-        });
-
-        currentPage = page;
-        window.scrollTo(0, 0);
-    }
-
-    function nextPage() {
-        if (currentPage < totalPages) {
-            showPage(currentPage + 1);
-        }
-    }
-
-    function prevPage() {
-        if (currentPage > 1) {
-            showPage(currentPage - 1);
-        }
-    }
-
-    function shareSite() {
-        if (navigator.share) {
-            navigator.share({ title: 'Mujeeb Gazi Motivational Stories', url: window.location.href });
-        } else {
-            alert('Link copied: ' + window.location.href);
-        }
-    }
-
-    function initVisitorCount() {
-        let count = localStorage.getItem('visitorCount');
-        if (!count) count = 1258;
-        count = parseInt(count) + 1;
-        localStorage.setItem('visitorCount', count);
-        const el = document.getElementById('visitor-count');
-        if (el) el.innerText = count;
-    }
-
-    window.onload = () => {
-        filterCards();
-        initVisitorCount();
-    };
-</script>
-</body>
-</html>
-        const pageInfo = document.getElementById('page-info') || document.querySelector('[class*="page-info"]');
-        
-        cards.forEach((card, index) => {
-            if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        // Page number update karo
-        const pageText = document.querySelector('body');
-        if(pageText){
-            // Page 1 of 3 wala text update
-            const pageElements = document.body.innerHTML.match(/Page \d+ of \d+/g);
-        }
-        const pageDisplay = document.getElementById('page-display');
-        if(pageDisplay) pageDisplay.innerText = `Page ${page} of ${totalPages}`;
-        
-        // Button ke text ko bhi update karo agar ID hai
-        let pageInfoElements = document.querySelectorAll('*');
-        pageInfoElements.forEach(el => {
-            if(el.innerText && el.innerText.includes('Page 1 of')){
-                el.innerText = `Page ${page} of ${totalPages}`;
-            }
-        });
-        
-        currentPage = page;
-        window.scrollTo(0,0);
-    }
-
-    function nextPage() {
-        if (currentPage < totalPages) {
-            showPage(currentPage + 1);
-        }
-    }
-
-    function prevPage() {
-        if (currentPage > 1) {
-            showPage(currentPage - 1);
-        }
-    }
-    // --- Fix Khatam ---
-    function initVisitorCount() {
-        let count = localStorage.getItem('visitorCount') || 1248;
-        count = parseInt(count) + 1;
-        localStorage.setItem('visitorCount', count);
-        document.getElementById('visitor-count').innerText = count.toLocaleString();
-    }
-
-    window.onload = () => {
-        filterCards();
-        initVisitorCount();
-    };
-</script>
-</body>
-</html>
+            navigator.share({ title: 'Mujeeb Gazi Motivational', url: window.location.
