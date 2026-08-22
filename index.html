@@ -104,7 +104,7 @@
         { id: 8, title: "8. लकड़हारा और नदी", text: "ईमानदारी की कद्र हमेशा होती है। लोहे की कुल्हाड़ी के बदले सोने की कुल्हाड़ी मिली।", moral: "— ईमानदारी सबसे बड़ा गुण", cat: "story" },
         { id: 9, title: "9. सच्चा दीपक", text: "मुसीबत में जो काम आए वही सच्चा साथी होता है।", moral: "— रोशनी ही चरित्र है", cat: "story" },
         { id: 10, title: "10. ज़हर की खेती", text: "हंसने और रोने का समय इंसान खुद चुनता है। जैसे बीज बोओगे वैसा ही फल काटोगे।", moral: "— कर्म ही सब कुछ है", cat: "story" },
-        { id: 11, title: "11. शेर और चूहा", text: "एकछोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
+        { id: 11, title: "11. शेर और चूहा", text: "एक छोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
         { id: 12, title: "12. दो मेंढक", text: "दूध के मटके में गिरे मेंढक ने लगातार तैरकर मक्खन बनाया और बाहर आ गया।", moral: "— हिम्मत न हारें", cat: "story" },
         { id: 13, title: "13. बूढ़ा और पेड़", text: "एक वृद्ध आदमी फल का पेड़ लगा रहा था। फल दूसरों के काम आएँगे।", moral: "— परोपकार ही जीवन है", cat: "story" },
         { id: 14, title: "14. मूर्ख हंस", text: "सही वक्त पर सही सलाह न मानना विनाश का कारण बनता है।", moral: "— सीख को अपनाओ", cat: "story" },
@@ -243,4 +243,30 @@
     }
 
     function filterCards() {
-        const searchInput = document.getElementById('searchInput'
+        const searchInput = document.getElementById('searchInput');
+        const query = searchInput ? searchInput.value.toLowerCase() : '';
+        
+        filteredData = contentData.filter(item => {
+            const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
+            const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
+            return matchesCat && matchesQuery;
+        });
+        currentPage = 1;
+        renderFeed();
+    }
+
+    function initVisitorCount() {
+        let count = localStorage.getItem('visitorCount') || 1248;
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+        const visitorElem = document.getElementById('visitor-count');
+        if (visitorElem) visitorElem.innerText = count.toLocaleString();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        filterCards();
+        initVisitorCount();
+    });
+</script>
+</body>
+</html>
