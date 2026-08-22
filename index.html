@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,8 @@
         .bio-text { font-size: 0.9rem; margin: 12px auto; max-width: 550px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px; border-left: 4px solid var(--accent-gold); }
         
         .links-list { display: flex; justify-content: center; gap: 10px; list-style: none; margin-top: 15px; flex-wrap: wrap; }
-        .links-list a { color: var(--text-color); text-decoration: none; padding: 6px 14px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.85rem; }
+        .links-list a { color: var(--text-color); text-decoration: none; padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .links-list a:hover { border-color: var(--accent-gold); }
 
         .controls { background: var(--card-bg); border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; margin-bottom: 20px; }
         .search-box { width: 100%; padding: 10px 15px; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 20px; color: var(--text-color); margin-bottom: 15px; font-size: 0.9rem; outline: none; }
@@ -43,14 +44,14 @@
         .card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
         .action-btn { background: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-color); padding: 6px 12px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
         .action-btn.whatsapp { color: var(--whatsapp-color); border-color: rgba(37, 211, 102, 0.3); }
-        .action-btn:hover { background: rgba(255,255,255,0.05); }
 
         .pagination { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 25px 0; }
         .page-btn { padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); cursor: pointer; }
         .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
         #pageIndicator { font-size: 0.9rem; color: var(--accent-gold); font-weight: bold; }
 
-        footer { text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); color: #6b7280; font-size: 0.8rem; }
+        footer { text-align: center; margin-top: 30px; padding: 20px 15px; border-top: 1px solid var(--border-color); color: #e5e7eb; font-size: 0.9rem; background: rgba(255,255,255,0.02); border-radius: 10px; }
+        .visitor-box { display: inline-block; background: rgba(255, 193, 7, 0.15); border: 1px solid var(--accent-gold); color: var(--accent-gold); font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-left: 6px; }
     </style>
 </head>
 <body>
@@ -63,8 +64,8 @@
         <div class="bio-text">⭐ <strong>Hoslo Ki Udaan</strong> ⭐<br>Ye sirf ek website nahi, balki un logon ke jazbaton ki awaaz hai jo zindagi ki mushkilon se larte hue bhi apne sapnon ko zinda rakhte hain.</div>
         <ul class="links-list">
             <li><a href="mailto:mujeebgazi785@gmail.com"><i class="fa-regular fa-envelope" style="color: var(--accent-gold);"></i> Email</a></li>
-            <li><a href="#" target="_blank"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube</a></li>
-            <li><a href="#" target="_blank"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</a></li>
+            <li><a href="https://www.youtube.com/@mujeebgazimotivational" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube</a></li>
+            <li><a href="https://www.facebook.com/share/18BfZSccUY/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</a></li>
         </ul>
     </div>
 
@@ -88,7 +89,7 @@
 </div>
 
 <footer>
-    <p>© Mujeeb Gazi Motivational | Visitors: <span id="visitor-count">1,248</span></p>
+    <p>© Mujeeb Gazi Motivational | Visitors: <span class="visitor-box"><i class="fa-solid fa-eye"></i> <span id="visitor-count">1,248</span></span></p>
 </footer>
 
 <script>
@@ -104,7 +105,7 @@
         { id: 8, title: "8. लकड़हारा और नदी", text: "ईमानदारी की कद्र हमेशा होती है। लोहे की कुल्हाड़ी के बदले सोने की कुल्हाड़ी मिली।", moral: "— ईमानदारी सबसे बड़ा गुण", cat: "story" },
         { id: 9, title: "9. सच्चा दीपक", text: "मुसीबत में जो काम आए वही सच्चा साथी होता है।", moral: "— रोशनी ही चरित्र है", cat: "story" },
         { id: 10, title: "10. ज़हर की खेती", text: "हंसने और रोने का समय इंसान खुद चुनता है। जैसे बीज बोओगे वैसा ही फल काटोगे।", moral: "— कर्म ही सब कुछ है", cat: "story" },
-        { id: 11, title: "11. शेर और चूहा", text: "एक छोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
+        { id: 11, title: "11. शेर और चूहा", text: "एकछोटे से चूहे ने जाल काटकर शेर की जान बचाई। किसी को भी छोटा या कमज़ोर न समझें।", moral: "— हर प्राणी उपयोगी है", cat: "story" },
         { id: 12, title: "12. दो मेंढक", text: "दूध के मटके में गिरे मेंढक ने लगातार तैरकर मक्खन बनाया और बाहर आ गया।", moral: "— हिम्मत न हारें", cat: "story" },
         { id: 13, title: "13. बूढ़ा और पेड़", text: "एक वृद्ध आदमी फल का पेड़ लगा रहा था। फल दूसरों के काम आएँगे।", moral: "— परोपकार ही जीवन है", cat: "story" },
         { id: 14, title: "14. मूर्ख हंस", text: "सही वक्त पर सही सलाह न मानना विनाश का कारण बनता है।", moral: "— सीख को अपनाओ", cat: "story" },
@@ -115,7 +116,7 @@
         { id: 19, title: "19. गुरु और शिष्य", text: "अभ्यास ही इंसान को श्रेष्ठ बनाता है। निरंतर प्रयास करते रहें।", moral: "— निरंतर प्रयास", cat: "story" },
         { id: 20, title: "20. एक घड़ा पानी", text: "एक-एक बूँद पानी से ही घड़ा भरता है, वैसे ही छोटे-छोटे प्रयासों से बड़ी सफलता मिलती है।", moral: "— सब्र का फल मीठा", cat: "story" },
 
-        // ISLAMIC (1-20)
+        // ISLAMIC (21-40)
         { id: 21, title: "1. सब्र और दुआ", text: "अल्लाह पर अटूट भरोसा ही हर मुश्किल का हल है। जब रास्ते बंद लगें, तो याद रखो रास्ता बनाने वाला अल्लाह है।", moral: "— Islamic Teaching", cat: "islamic" },
         { id: 22, title: "2. नीयत और फल", text: "इंसान की नीयत ही उसके कर्मों का फैसला करती है। अगर नीयत साफ है तो अल्लाह रास्ते खोल देता है।", moral: "— Hadees Shareef", cat: "islamic" },
         { id: 23, title: "3. नमाज़ की ताक़त", text: "नमाज़ दिल को सुकून और ज़िंदगी को बरकत देती है। इसे कभी मत छोड़ो।", moral: "— Islamic Message", cat: "islamic" },
@@ -137,7 +138,7 @@
         { id: 39, title: "19. दुआ की ताक़त", text: "दुआ तक़दीर बदल सकती है। माँगते रहो, रब देने वाला है।", moral: "— Power of Dua", cat: "islamic" },
         { id: 40, title: "20. हलाल की रोज़ी", text: "परहेज़गारी और हलाल की रोज़ी ही इंसान की इज़्ज़त की कुंजी है।", moral: "— Islamic Goal", cat: "islamic" },
 
-        // QUOTES (1-20)
+        // QUOTES (41-60)
         { id: 41, title: "1. इरादे और हालात", text: "हालात चाहे कितने भी कठोर क्यों न हों, आपके इरादे कभी झुकने नहीं चाहिए।", moral: "— Mujeeb Gazi", cat: "quotes" },
         { id: 42, title: "2. खुद पर भरोसा", text: "लोग क्या कहेंगे ये सोचने से बेहतर है कि आप वो करें जो आपको मंज़िल तक ले जाए।", moral: "— Mujeeb Gazi", cat: "quotes" },
         { id: 43, title: "3. सूर्य जैसी चमक", text: "सूरज की तरह चमकना है तो पहले सूरज की तरह जलना सीखो।", moral: "— Daily Motivation", cat: "quotes" },
@@ -191,7 +192,7 @@
 
             card.innerHTML = `
                 <div class="story-title"><i class="fa-solid ${icon}"></i> ${item.title}</div>
-                <div class="story-text" id="text-${item.id}">${item.text}</div>
+                <div class="story-text">${item.text}</div>
                 <div class="story-moral">${item.moral}</div>
                 <div class="card-actions">
                     <button class="action-btn" onclick="speakText('${encodeURIComponent(item.title + '. ' + item.text)}')">
@@ -223,7 +224,7 @@
     function shareWhatsApp(title, text) {
         const decodedTitle = decodeURIComponent(title);
         const decodedText = decodeURIComponent(text);
-        const shareString = `*${decodedTitle}*\n\n${decodedText}\n\n📖 Read more on: https://bgazi785-ship-it.github.io`;
+        const shareString = `*${decodedTitle}*\n\n${decodedText}\n\n📖 Read more on: https://mujeebgazi785-ship-it.github.io`;
         window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareString)}`, '_blank');
     }
 
@@ -244,4 +245,38 @@
 
     function filterCards() {
         const searchInput = document.getElementById('searchInput');
-        con
+        const query = searchInput ? searchInput.value.toLowerCase() : '';
+        
+        filteredData = contentData.filter(item => {
+            const matchesCat = (currentCategory === 'all' || item.cat === currentCategory);
+            const matchesQuery = item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query);
+            return matchesCat && matchesQuery;
+        });
+        currentPage = 1;
+        renderFeed();
+    }
+
+    function updateVisitorCount() {
+        fetch('https://api.counterapi.dev/v1/mujeebgazi785-ship-it/visitors/up')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.count) {
+                    const total = 1248 + data.count;
+                    document.getElementById('visitor-count').innerText = total.toLocaleString();
+                }
+            })
+            .catch(() => {
+                let count = localStorage.getItem('visitorCount') || 1248;
+                count = parseInt(count) + 1;
+                localStorage.setItem('visitorCount', count);
+                document.getElementById('visitor-count').innerText = count.toLocaleString();
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        filterCards();
+        updateVisitorCount();
+    });
+</script>
+</body>
+</html>
